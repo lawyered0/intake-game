@@ -34,25 +34,25 @@ export function DayPicker({ days }: DayPickerProps) {
         <Link
           href={`/play/${primaryDay.id}`}
           aria-label={primaryDay.title.split(":")[0]}
-          className="action-button card-accent relative flex w-full flex-col gap-4 overflow-hidden rounded-xl px-5 py-5 sm:px-6 sm:py-6"
+          className="action-button relative flex w-full flex-col gap-4 overflow-hidden rounded-xl border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-5 text-[var(--night)] shadow-[0_0_40px_rgba(255,190,99,0.25)] sm:px-6 sm:py-6"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--night)]/60">
                 Start Here
               </p>
               <p className="mt-1 font-display text-3xl uppercase sm:text-4xl">
                 {primaryDay.title.split(":")[0]}
               </p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--night)]/60">
                 {primaryDay.theme}
               </p>
             </div>
-            <span className="rounded-full border border-white/10 bg-white/6 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
+            <span className="rounded-full border border-[var(--night)]/15 bg-[var(--night)]/10 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--night)]/70">
               {getCompletionLabel(completions[primaryDay.id])}
             </span>
           </div>
-          <p className="max-w-3xl text-sm leading-6 text-[var(--text-secondary)] sm:text-base">
+          <p className="max-w-3xl text-sm leading-6 text-[var(--night)]/70 sm:text-base">
             {primaryDay.teaser}
           </p>
         </Link>

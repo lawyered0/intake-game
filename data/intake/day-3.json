@@ -1,0 +1,793 @@
+{
+  "id": "day-3",
+  "order": 3,
+  "title": "Day 3: Friday Intake Desk",
+  "theme": "Polished But Dangerous",
+  "teaser": "Sharp decks, clean emails, and clients who sound ready until the missing record shows up.",
+  "briefing": {
+    "role": "You are reviewing a more polished intake stack for the firm.",
+    "overview": "These files look cleaner on first read, but that does not make them safer. Open the ready matters, pause the thin ones, and decline the wrong goals.",
+    "goals": [
+      "Do not mistake polish for proof.",
+      "Use Request More Info when the missing record is concrete and central.",
+      "Decline matters driven by bad fit, bad conduct, or bad objectives."
+    ],
+    "reminder": "A neat client can still hide risk. Read for records, fit, money, and motive."
+  },
+  "scoringGuide": [
+    {
+      "label": "Strong call: +3",
+      "detail": "Best move for the file."
+    },
+    {
+      "label": "Mixed call: +1",
+      "detail": "Reasonable, but not best."
+    },
+    {
+      "label": "Poor call: -2",
+      "detail": "Too risky or too quick."
+    }
+  ],
+  "cases": [
+    {
+      "id": "lena-holt-executive-exit",
+      "order": 1,
+      "clientName": "Lena Holt",
+      "matterType": "Executive compensation dispute",
+      "headline": "Polished executive wants counsel before a separation call",
+      "sourceChannel": "Assistant email + clean PDF packet",
+      "summary": "Lena says her company is pushing her out and underpaying deferred compensation. Her assistant sent a clean packet with an employment agreement, the severance script, and board emails, but the packet does not include the compensation schedules, bonus calculations, or the amendment Lena says changed her payout. She wants counsel lined up before a Monday separation call.",
+      "requestedOutcome": "She wants the firm to assess the compensation exposure and prepare for the Monday call if the missing schedules support her position.",
+      "facts": [
+        "The packet is organized, but the bonus schedules and amendment trail are missing.",
+        "She says a compensation amendment was signed last year but did not include it.",
+        "The first ask is realistic, but the missing records control the dollars."
+      ],
+      "documents": [
+        {
+          "type": "Employment agreement",
+          "label": "Base contract",
+          "body": "The agreement references bonus schedules and later amendments that are not attached."
+        },
+        {
+          "type": "Board email",
+          "label": "Separation meeting notice",
+          "body": "The email schedules a Monday call and mentions a proposed package, but not the disputed compensation math."
+        }
+      ],
+      "visibleSignals": [
+        "Very polished intake packet",
+        "Money turns on documents that are missing",
+        "Urgent, but not same-hour urgent"
+      ],
+      "hiddenRiskTags": ["urgency", "fact_instability"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You opened a premium-looking file before the numbers were real",
+          "explanation": "The presentation is clean, but the compensation claim still turns on records that are not in the packet. Opening the file as if the core math is settled asks the firm to guess at the central issue.",
+          "whyItMatters": "Polish is helpful, but it is not proof. Intake has to separate a strong packet from a complete record.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The bonus schedules are missing.",
+            "The amendment chain is the heart of the dispute."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Safe, but too final",
+          "explanation": "It is understandable to avoid a compensation fight without the schedules. Still, this looks like a potentially good file once the missing documents arrive.",
+          "whyItMatters": "Some polished files are thin, not bad. The right move is often to test the missing record before closing the door.",
+          "signalsCaught": [
+            "You did not let the clean packet rush you."
+          ],
+          "signalsMissed": [
+            "The missing proof is specific and obtainable."
+          ],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Best move",
+          "explanation": "This is the right time to pause and ask for the compensation schedules, amendment chain, and payout calculations. That is a prudent intake move because the file may work, but the missing record decides the value.",
+          "whyItMatters": "Request More Info is strong when the gap is narrow, knowable, and central to whether the matter is worth opening.",
+          "signalsCaught": [
+            "The intake is polished but incomplete.",
+            "The missing records are concrete and central."
+          ],
+          "signalsMissed": [],
+          "followUpQuestion": "Send every bonus schedule, compensation amendment, and payout calculation tied to your current package.",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "owen-price-receivables",
+      "order": 2,
+      "clientName": "Owen Price",
+      "matterType": "Receivables collection",
+      "headline": "Brought the contract, invoices, delivery proofs, and a realistic ask",
+      "sourceChannel": "Controller referral + document folder",
+      "summary": "Owen runs a packaging supplier and says a customer is sixty days late on a group of invoices. He attached the signed master supply agreement, purchase orders, delivery receipts, and the aging report. He wants the firm to evaluate a collection strategy before a payment plan meeting next week.",
+      "requestedOutcome": "He wants the firm to review the record and send a measured collection notice if the documents support it.",
+      "facts": [
+        "The signed contract and purchase orders are attached.",
+        "The delivery receipts line up with the unpaid invoices.",
+        "He is asking for review and a business-minded first step."
+      ],
+      "documents": [
+        {
+          "type": "Supply agreement",
+          "label": "Signed master contract",
+          "body": "The contract includes payment terms, late fees, and a notice clause for collection demands."
+        },
+        {
+          "type": "Delivery proof",
+          "label": "Receipt packet",
+          "body": "Each unpaid invoice has a matching signed delivery receipt and purchase order."
+        }
+      ],
+      "visibleSignals": [
+        "Core contract documents are complete",
+        "The story matches the paper trail",
+        "The first ask is practical"
+      ],
+      "hiddenRiskTags": ["urgency"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Right file to open",
+          "explanation": "This matter is ready now. The documents support the debt, the client wants a sensible first step, and the file fits the desk.",
+          "whyItMatters": "Strong intake judgment means opening clean files when the contract, performance, and business objective line up.",
+          "signalsCaught": [
+            "The contract and invoices match.",
+            "The client wants a measured collection step, not theater."
+          ],
+          "signalsMissed": [],
+          "styleTag": "commercial"
+        },
+        "decline": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You turned away a ready commercial matter",
+          "explanation": "Nothing here suggests bad fit, bad conduct, or a missing record. Declining it leaves a workable file on the table for no intake reason.",
+          "whyItMatters": "The desk is not only about avoiding trouble. It is also about spotting matters that are already ready to move.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The customer debt is documented.",
+            "The client's ask is realistic."
+          ],
+          "styleTag": "overcautious"
+        },
+        "request_info": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Defensible, but slower than needed",
+          "explanation": "A small follow-up is a reasonable and prudent check, but the file already has enough paper to open. Asking for more before intake is a cautious move, not the best move.",
+          "whyItMatters": "Request More Info is useful when something central is missing. Here, the core proof is already on the desk.",
+          "signalsCaught": [
+            "You kept the matter alive."
+          ],
+          "signalsMissed": [
+            "The contract and delivery record already support intake."
+          ],
+          "followUpQuestion": "Has the customer raised any written dispute about the goods or just delayed payment?",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "darren-cho-founder-firings",
+      "order": 3,
+      "clientName": "Darren Cho",
+      "matterType": "Founder dispute",
+      "headline": "Reports four prior firms on the same founder dispute",
+      "sourceChannel": "Direct email with polished timeline memo",
+      "summary": "Darren says his co-founders froze him out of the company. He sent a neat timeline and a redlined demand letter, but he also says four prior firms failed him because they would not move as aggressively as he wanted. He wants new counsel to file immediately and insists on directing strategy personally.",
+      "requestedOutcome": "He wants the firm to adopt his demand package and start litigation right away.",
+      "facts": [
+        "He has already cycled through four law firms on the same dispute.",
+        "He wants to control strategy and draft demands himself.",
+        "The materials are polished, but the client-management signal is bad."
+      ],
+      "documents": [
+        {
+          "type": "Timeline memo",
+          "label": "Founder chronology",
+          "body": "The memo is organized and detailed, but it reads like advocacy copy and lacks core company records."
+        },
+        {
+          "type": "Demand draft",
+          "label": "Client-written letter",
+          "body": "The draft threatens criminal exposure, investor blowback, and personal embarrassment unless payment is made."
+        }
+      ],
+      "visibleSignals": [
+        "Four prior firms on one matter",
+        "Wants counsel to execute his script",
+        "Polished materials, poor relationship signal"
+      ],
+      "hiddenRiskTags": ["prior_counsel", "expectation_mismatch", "abusive_behavior"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You invited a management problem onto the desk",
+          "explanation": "The dispute may have some truth, but the client is already broadcasting churn, control issues, and aggression toward counsel. Opening the file invites a relationship problem before the core record is even tested.",
+          "whyItMatters": "Prior lawyer turnover is not automatically disqualifying, but repeated churn plus strategy control demands is a serious intake warning.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "Four prior firms is a major signal.",
+            "The client wants counsel to follow his script."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Correct decline",
+          "explanation": "This is the kind of polished file that still belongs outside the firm. The relationship risk is already visible and the client appears to want a mouthpiece rather than professional judgment.",
+          "whyItMatters": "Intake discipline includes declining clients whose conduct and expectations are likely to burn time, judgment, and collections.",
+          "signalsCaught": [
+            "Repeated lawyer churn is a major warning.",
+            "The client wants control, not counsel."
+          ],
+          "signalsMissed": [],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Prudent pause, but the desk should still say no",
+          "explanation": "Slowing the file down and asking for records is more prudent than opening it immediately. Even so, the relationship and expectation signals already point toward a decline.",
+          "whyItMatters": "Request More Info can buy clarity, but it does not erase severe churn and client-control problems.",
+          "signalsCaught": [
+            "You did not move on the polished story alone."
+          ],
+          "signalsMissed": [
+            "The client-management risk is already high enough to matter."
+          ],
+          "followUpQuestion": "Why did each prior firm stop representing you, and do you have the disengagement letters?",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "maya-lane-influencer-defamation",
+      "order": 4,
+      "clientName": "Maya Lane",
+      "matterType": "Defamation threat review",
+      "headline": "Has preserved posts but no damages record yet",
+      "sourceChannel": "Manager email + social media packet",
+      "summary": "Maya is an influencer with a large following. Her manager sent screenshots of a competitor's post accusing Maya of fraud and wants the firm to move before a brand call tomorrow morning. The packet is polished, but it does not include contracts lost, brand responses, or anything showing actual damage beyond angry comments.",
+      "requestedOutcome": "She wants the firm to assess whether to send a measured notice before the brand call.",
+      "facts": [
+        "The screenshots preserve the statements, but not any concrete losses.",
+        "The manager says sponsors are nervous but did not attach sponsor correspondence.",
+        "The matter may be real, but the harm record is still thin."
+      ],
+      "documents": [
+        {
+          "type": "Screenshot packet",
+          "label": "Post archive",
+          "body": "The packet captures the post, comments, and reposts, but not any business fallout."
+        },
+        {
+          "type": "Brand calendar",
+          "label": "Upcoming call schedule",
+          "body": "The schedule shows a brand call tomorrow morning, which is why the team wants quick review."
+        }
+      ],
+      "visibleSignals": [
+        "Strong preservation of the statements",
+        "No damages file yet",
+        "Urgent brand pressure"
+      ],
+      "hiddenRiskTags": ["urgency", "fact_instability", "expectation_mismatch"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You treated a social media packet like a finished file",
+          "explanation": "The statements are preserved, but the damages story is not there yet. Opening the matter as though the business impact is already known pushes the firm ahead of the record.",
+          "whyItMatters": "Defamation-style matters often arrive with dramatic screenshots before the concrete harm record is built.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "No brand loss record is attached.",
+            "The manager's urgency does not fill the proof gap."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Understandable, but too quick",
+          "explanation": "A screenshot-driven file can easily go nowhere, so declining is understandable. Still, the matter may become workable once the sponsor and damages record is collected.",
+          "whyItMatters": "Thin proof is not always bad proof. Sometimes it means the right intake request has not been made yet.",
+          "signalsCaught": [
+            "You did not overvalue the drama of the packet."
+          ],
+          "signalsMissed": [
+            "The missing damages record is concrete and could change the call."
+          ],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Best move",
+          "explanation": "Asking for sponsor messages, lost deal notes, platform analytics, and any revenue impact is the prudent intake move here. The file may work, but the business harm still has to be shown.",
+          "whyItMatters": "Request More Info is strong when the missing record is specific and goes straight to whether the matter has real value.",
+          "signalsCaught": [
+            "The statement evidence is preserved.",
+            "The damages proof is still missing."
+          ],
+          "signalsMissed": [],
+          "followUpQuestion": "Send any sponsor emails, cancellation notes, analytics drops, or revenue records tied to the post.",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "victor-sanz-franchise-threat",
+      "order": 5,
+      "clientName": "Victor Sanz",
+      "matterType": "Franchise dispute",
+      "headline": "Wants an immediate threat letter in a franchise renewal dispute",
+      "sourceChannel": "Phone memo + follow-up email",
+      "summary": "Victor operates two franchise locations and says the franchisor treated him unfairly during renewal talks. He wants counsel to send a letter threatening exposure, social media fallout, and regulator complaints unless the franchisor changes course by Monday. He has some grievance documents, but his stated goal is still to punish them for disrespect.",
+      "requestedOutcome": "He wants the firm to send an aggressive threat letter immediately.",
+      "facts": [
+        "His stated goal is punishment, not a business solution.",
+        "The proposed pressure tactics are broader than the legal issue he described.",
+        "He talks about public pressure and leverage more than the contract."
+      ],
+      "documents": [
+        {
+          "type": "Renewal notice",
+          "label": "Franchise renewal packet",
+          "body": "The packet raises timing and fee disputes, but it does not support the public-pressure tactics he wants to use."
+        },
+        {
+          "type": "Client email",
+          "label": "Draft threat points",
+          "body": "Victor lists media contacts, customer pressure ideas, and regulator complaints he wants included in a letter."
+        }
+      ],
+      "visibleSignals": [
+        "Revenge-driven goal",
+        "Aggression is the product he wants to buy",
+        "The legal fit is already distorted by motive"
+      ],
+      "hiddenRiskTags": ["revenge_motive", "abusive_behavior", "expectation_mismatch"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You sold the client the wrong thing",
+          "explanation": "The client is not asking for legal judgment. He is shopping for intimidation. Opening that file invites bad tactics and bad expectations from the start.",
+          "whyItMatters": "A matter can have some underlying business issue and still be the wrong intake because the client's objective is misaligned with responsible representation.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The client's goal is punishment.",
+            "He wants threats that outrun the legal issue."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Correct decline",
+          "explanation": "The file is distorted by revenge and pressure tactics from the start. The right intake call is to say no instead of letting the firm become part of the escalation.",
+          "whyItMatters": "Good client filtering is not just about facts. It is also about motive and whether the client wants judgment or theater.",
+          "signalsCaught": [
+            "The client's objective is revenge-heavy.",
+            "The letter he wants is not a disciplined legal step."
+          ],
+          "signalsMissed": [],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Prudent pause, but still not the right client",
+          "explanation": "It is more prudent to slow the file down than to send the letter immediately. Even so, the motive and tactics already point toward a decline.",
+          "whyItMatters": "Request More Info can be a safe intake move, but it does not cure a revenge-driven objective.",
+          "signalsCaught": [
+            "You did not reward the aggression."
+          ],
+          "signalsMissed": [
+            "The core problem is motive, not a missing page."
+          ],
+          "followUpQuestion": "What specific business outcome do you want besides embarrassing the franchisor or forcing a public fight?",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "priya-nand-lease-amendment",
+      "order": 6,
+      "clientName": "Priya Nand",
+      "matterType": "Commercial lease dispute",
+      "headline": "Lease fight looks clear until the amendment trail disappears",
+      "sourceChannel": "CFO email + lease packet",
+      "summary": "Priya runs a boutique fitness company and says the landlord is misreading the rent reset under an amended lease. Her team sent the original lease, a polished chronology, and a default notice that pressures a response by Tuesday. The packet references two amendments and a side letter, but only one amendment is attached.",
+      "requestedOutcome": "She wants the firm to assess the dispute and respond before the default notice deadline if the full lease record supports her reading.",
+      "facts": [
+        "The default notice creates urgency, but not a same-hour emergency.",
+        "The missing amendment chain appears central to the rent dispute.",
+        "The client has organized the file well, but one key document set is absent."
+      ],
+      "documents": [
+        {
+          "type": "Lease packet",
+          "label": "Original lease + first amendment",
+          "body": "The packet references a later amendment and side letter that are not included."
+        },
+        {
+          "type": "Default notice",
+          "label": "Landlord notice",
+          "body": "The notice demands a cure response by Tuesday and cites rent terms from the missing later amendment."
+        }
+      ],
+      "visibleSignals": [
+        "Neat packet with one central hole",
+        "Urgent notice",
+        "The missing documents are named in the papers"
+      ],
+      "hiddenRiskTags": ["urgency", "fact_instability"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You opened a lease fight without the lease record",
+          "explanation": "The file looks orderly, but the disputed rent term appears in documents that are missing. Opening the matter as if the lease record is complete is too quick.",
+          "whyItMatters": "A polished chronology does not replace the contract chain when the contract chain is the dispute.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The later amendment is missing.",
+            "The notice itself relies on the absent documents."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Safe, but too quick to close the file",
+          "explanation": "It is understandable to avoid a lease dispute without the full amendment chain. Still, this looks like a potentially solid matter once the missing lease paper arrives.",
+          "whyItMatters": "Some commercial files are paused because of a narrow record gap, not because the client or matter is wrong.",
+          "signalsCaught": [
+            "You did not pretend the polished packet was complete."
+          ],
+          "signalsMissed": [
+            "The missing contract documents are identifiable and important."
+          ],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Best move",
+          "explanation": "Asking for the missing amendment chain and side letter is the prudent intake move. The matter may be good, but the rent dispute cannot be evaluated on a half-built lease file.",
+          "whyItMatters": "Request More Info is strong when the missing contract paper is both concrete and outcome-driving.",
+          "signalsCaught": [
+            "The urgency is real, but manageable.",
+            "The absent lease papers are central."
+          ],
+          "signalsMissed": [],
+          "followUpQuestion": "Send the missing amendment, side letter, and any email that confirms the rent reset terms in the notice.",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "samira-vale-medical-vendor",
+      "order": 7,
+      "clientName": "Samira Vale",
+      "matterType": "Commercial collections matter",
+      "headline": "Vendor file is complete, funded, and businesslike",
+      "sourceChannel": "Operations director email + PO packet",
+      "summary": "Samira manages a medical supply vendor and says a clinic network has not paid for delivered equipment. She attached the purchase orders, signed delivery records, invoice history, and the client's partial-payment emails. She is prepared to fund a retainer and wants the firm to evaluate a collection path before the quarter closes.",
+      "requestedOutcome": "She wants the firm to review the file and recommend the first collection step.",
+      "facts": [
+        "The purchase orders and delivery records match the invoices.",
+        "The debtor acknowledged the balance in email and asked for more time.",
+        "The client is realistic about scope and budget."
+      ],
+      "documents": [
+        {
+          "type": "Purchase order set",
+          "label": "PO and invoice packet",
+          "body": "Each invoice is matched to a purchase order and signed delivery confirmation."
+        },
+        {
+          "type": "Debtor email",
+          "label": "Payment delay thread",
+          "body": "The debtor asks for more time and acknowledges the outstanding balance without disputing delivery."
+        }
+      ],
+      "visibleSignals": [
+        "Complete paper trail",
+        "Client can fund the work",
+        "Business objective is practical"
+      ],
+      "hiddenRiskTags": ["urgency"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Right file to open",
+          "explanation": "The file is ready. The delivery proof is complete, the debt is acknowledged, and the client is aligned on budget and scope.",
+          "whyItMatters": "A strong intake desk should open clean commercial matters instead of stalling them out of habit.",
+          "signalsCaught": [
+            "The debtor already acknowledged the balance.",
+            "The client brought the contract and proof of performance."
+          ],
+          "signalsMissed": [],
+          "styleTag": "commercial"
+        },
+        "decline": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You passed on a clean file",
+          "explanation": "There is no visible fit problem, record gap, or conduct problem here. Declining the matter ignores a file that is already ready to move.",
+          "whyItMatters": "The goal is not maximum caution. The goal is disciplined selection.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The file has a complete proof trail.",
+            "The client is commercially reasonable."
+          ],
+          "styleTag": "overcautious"
+        },
+        "request_info": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Reasonable, but extra",
+          "explanation": "A small follow-up is reasonable, but the file already has enough paper to open. You do not need another loop before intake.",
+          "whyItMatters": "Request More Info is helpful when the missing record is central. Here, it is mostly extra caution.",
+          "signalsCaught": [
+            "You kept the matter alive."
+          ],
+          "signalsMissed": [
+            "The proof trail is already complete enough to open."
+          ],
+          "followUpQuestion": "Has the debtor raised any quality issue at all, or only asked for more time to pay?",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "noah-vale-trademark-panic",
+      "order": 8,
+      "clientName": "Noah Vale",
+      "matterType": "Trademark risk review",
+      "headline": "Brand founder has a cease-and-desist but no clearance history",
+      "sourceChannel": "Founder email + launch deck",
+      "summary": "Noah is launching a consumer brand next week and received a cease-and-desist letter from a larger company. He sent the letter, a polished launch deck, and marketing mockups. He says prior counsel 'looked at the mark months ago,' but he did not attach any clearance report, search results, or advice memo.",
+      "requestedOutcome": "He wants the firm to assess the demand and advise whether the launch can stay on schedule.",
+      "facts": [
+        "The cease-and-desist letter is real and time-sensitive.",
+        "The file does not include the brand clearance history or prior legal advice.",
+        "The missing background could dramatically change the risk read."
+      ],
+      "documents": [
+        {
+          "type": "Demand letter",
+          "label": "Cease-and-desist",
+          "body": "The letter sets a response deadline and claims the brand launch will infringe an existing mark."
+        },
+        {
+          "type": "Launch deck",
+          "label": "Brand rollout plan",
+          "body": "The deck is polished and detailed, but it does not address trademark clearance or prior advice."
+        }
+      ],
+      "visibleSignals": [
+        "Urgent launch timing",
+        "Professional founder materials",
+        "No clearance record in the packet"
+      ],
+      "hiddenRiskTags": ["urgency", "fact_instability", "credibility"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You treated launch energy like a full trademark file",
+          "explanation": "The demand is real, but the background that matters most is missing. Without the clearance history and prior advice, opening the file as if risk is ready to assess is too quick.",
+          "whyItMatters": "Trademark panic often arrives with polished branding materials and almost none of the legal history that actually drives the answer.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The clearance record is missing.",
+            "Prior counsel may already know facts that change the risk."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Safe, but too final",
+          "explanation": "A rushed launch dispute can be messy, so declining is understandable. Still, the matter may become workable once the clearance history and prior advice are on the desk.",
+          "whyItMatters": "A missing legal backstory often means pause and gather, not an immediate rejection.",
+          "signalsCaught": [
+            "You did not rush into a launch panic."
+          ],
+          "signalsMissed": [
+            "The missing background is concrete and could change the call."
+          ],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Best move",
+          "explanation": "Ask for the clearance search, prior advice, naming memos, and any emails showing what the founder knew before launch. That is the prudent intake move because the demand is real, but the key history is missing.",
+          "whyItMatters": "Request More Info is strong when the absent record can materially change whether the matter is wise to open.",
+          "signalsCaught": [
+            "The deadline matters, but so does the clearance history.",
+            "The polished launch deck is not the legal record."
+          ],
+          "signalsMissed": [],
+          "followUpQuestion": "Send any search report, naming memo, clearance advice, or prior counsel email about this mark before launch.",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "tessa-reed-friend-letter",
+      "order": 9,
+      "clientName": "Tessa Reed",
+      "matterType": "Demand-letter request",
+      "headline": "Friend referral wants a same-day demand letter without facts or retainer",
+      "sourceChannel": "Friend-of-firm text handoff",
+      "summary": "Tessa was referred by a friend of the firm and wants just one sharp letter sent to a former business partner. She says the full documents are coming later, does not want to pay a retainer until the partner responds, and wants the letter to go out today so she can post about it tonight.",
+      "requestedOutcome": "She wants a same-day demand letter sent before the facts and payment are organized.",
+      "facts": [
+        "She is resisting a retainer while asking for immediate work.",
+        "She does not have the contract packet ready yet.",
+        "Her goal sounds like pressure and public leverage, not orderly problem-solving."
+      ],
+      "documents": [
+        {
+          "type": "Text thread",
+          "label": "Referral messages",
+          "body": "The messages emphasize speed and pressure, not the underlying agreement or the actual dispute terms."
+        },
+        {
+          "type": "Client note",
+          "label": "Quick summary",
+          "body": "The summary says a former partner lied and owes money, but provides no dates, contract, or payment history."
+        }
+      ],
+      "visibleSignals": [
+        "No core documents yet",
+        "Fee resistance at intake",
+        "Wants an aggressive same-day move"
+      ],
+      "hiddenRiskTags": ["fee_resistance", "fact_instability", "abusive_behavior"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You sent the desk into unpaid guesswork",
+          "explanation": "The client wants urgency, aggression, and free work before the facts are even assembled. Opening that matter invites poor collections and poor judgment at the same time.",
+          "whyItMatters": "Fee resistance plus missing records plus pressure for a same-day letter is one of the clearest intake warning clusters.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The client is resisting payment.",
+            "The factual record is not ready."
+          ],
+          "styleTag": "too_trusting"
+        },
+        "decline": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Correct decline",
+          "explanation": "This file combines missing facts, fee resistance, and pressure for an aggressive move. The desk should say no instead of hoping the missing pieces arrive later.",
+          "whyItMatters": "Good intake judgment recognizes bad signal clusters, not just single red flags.",
+          "signalsCaught": [
+            "The client wants same-day pressure without a record.",
+            "The retainer issue is already visible."
+          ],
+          "signalsMissed": [],
+          "styleTag": "guardrail"
+        },
+        "request_info": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Prudent pause, but still the wrong file",
+          "explanation": "Asking for the agreement and payment history is more prudent than firing off the letter. Even so, the fee and conduct signals still make this a poor intake fit.",
+          "whyItMatters": "Request More Info can slow a risky file down, but it does not fix a client who wants unpaid aggression before the facts are ready.",
+          "signalsCaught": [
+            "You did not move on pressure alone."
+          ],
+          "signalsMissed": [
+            "The fee and behavior signals already point away from intake."
+          ],
+          "followUpQuestion": "Send the signed agreement, payment history, and explain why you do not want to fund a retainer before work starts.",
+          "styleTag": "disciplined"
+        }
+      }
+    },
+    {
+      "id": "ben-morrow-supply-breach",
+      "order": 10,
+      "clientName": "Ben Morrow",
+      "matterType": "Supply agreement breach",
+      "headline": "Small business brought the contract, notices, and a measured target",
+      "sourceChannel": "Owner email + contract bundle",
+      "summary": "Ben runs a specialty food company and says a distributor stopped performing under a supply agreement two months before the holiday season. He attached the signed contract, cure notices, shipping records, and the distributor's replies. He wants the firm to review the breach and help decide whether to negotiate or escalate before the next delivery window closes.",
+      "requestedOutcome": "He wants a clear first-step assessment and, if supported, a measured response to protect the supply line.",
+      "facts": [
+        "The contract, notices, and shipping records are attached.",
+        "The distributor responded in writing and did not deny the delivery failures.",
+        "The client wants a practical business solution, not a theatrical one."
+      ],
+      "documents": [
+        {
+          "type": "Supply agreement",
+          "label": "Signed contract",
+          "body": "The contract includes delivery obligations, cure provisions, and a dispute-notice section."
+        },
+        {
+          "type": "Cure correspondence",
+          "label": "Notice exchange",
+          "body": "The distributor acknowledges missed shipments and asks for a short extension, but does not deny the failures."
+        }
+      ],
+      "visibleSignals": [
+        "Complete contract record",
+        "Counterparty responded in writing",
+        "Client wants a grounded first step"
+      ],
+      "hiddenRiskTags": ["urgency"],
+      "outcomes": {
+        "accept": {
+          "scoreDelta": 3,
+          "verdict": "strong",
+          "headline": "Right file to open",
+          "explanation": "The file is documented, inside scope, and tied to a practical first objective. This is exactly the kind of commercial matter the desk should move forward.",
+          "whyItMatters": "Strong intake is not just avoiding bad clients. It is recognizing when the contract, records, and objective already support a good file.",
+          "signalsCaught": [
+            "The written record is complete enough to assess.",
+            "The client wants a grounded business step."
+          ],
+          "signalsMissed": [],
+          "styleTag": "commercial"
+        },
+        "decline": {
+          "scoreDelta": -2,
+          "verdict": "poor",
+          "headline": "You rejected a solid file",
+          "explanation": "Nothing in the intake suggests bad fit, bad motive, or a major record problem. Declining it leaves a good commercial file unused.",
+          "whyItMatters": "Discipline is not the same as reflexive caution. Ready matters should still open.",
+          "signalsCaught": [],
+          "signalsMissed": [
+            "The contract record is complete.",
+            "The client's first ask is measured."
+          ],
+          "styleTag": "overcautious"
+        },
+        "request_info": {
+          "scoreDelta": 1,
+          "verdict": "mixed",
+          "headline": "Reasonable, but not the best move",
+          "explanation": "A follow-up question is reasonable, but the file already has enough on paper to open. The desk does not need another loop before intake.",
+          "whyItMatters": "Request More Info is prudent when the missing record blocks judgment. Here, the main record already supports a first-step assessment.",
+          "signalsCaught": [
+            "You kept the matter alive."
+          ],
+          "signalsMissed": [
+            "The file is already ready for intake."
+          ],
+          "followUpQuestion": "Has the distributor proposed any written cure plan beyond the short extension request already in the file?",
+          "styleTag": "disciplined"
+        }
+      }
+    }
+  ]
+}

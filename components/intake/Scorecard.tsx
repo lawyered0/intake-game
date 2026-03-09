@@ -66,39 +66,38 @@ export function Scorecard({
 
   return (
     <section className="space-y-6">
-      <div className="dossier-shell paper-panel rounded-[32px] border px-6 py-6 sm:px-8">
+      <div className="card rounded-xl px-6 py-6 sm:px-8">
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="paper-sheet rounded-[26px] px-5 py-5">
-            <div className="paper-fold" />
+          <div className="card rounded-xl px-5 py-5">
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--accent-red)]">
               Result
             </p>
             <div className="mt-4 flex items-end gap-4">
-              <div className="score-plaque rounded-[24px] px-5 py-4">
-                <p className="font-title text-6xl leading-none text-[var(--ink)] sm:text-7xl">
+              <div className="card-accent rounded-xl px-5 py-4">
+                <p className="font-display text-6xl leading-none text-[var(--accent-gold)] sm:text-7xl">
                   {grade}
                 </p>
               </div>
               <div className="pb-2">
-                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/45">
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                   Final score
                 </p>
-                <p className="text-3xl font-semibold text-black/80">{state.score}</p>
+                <p className="text-3xl font-semibold">{state.score}</p>
               </div>
             </div>
             {isNewBest ? (
-              <p className="mt-4 inline-flex rounded-full border border-black/10 bg-black/5 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-black/55">
+              <p className="mt-4 inline-flex rounded-full border border-[var(--accent-gold)]/20 bg-[var(--accent-gold-soft)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--accent-gold)]">
                 New best
               </p>
             ) : null}
-            <p className="mt-4 text-base leading-7 text-black/75">{style.description}</p>
+            <p className="mt-4 text-base leading-7 text-[var(--text-secondary)]">{style.description}</p>
             {completion ? (
-              <p className="mt-3 text-sm leading-6 text-black/65">
+              <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
                 Best: {completion.bestGrade} ({completion.bestScore}) after{" "}
                 {completion.attempts} run{completion.attempts === 1 ? "" : "s"}.
               </p>
             ) : null}
-            <div className="mt-5 grid grid-cols-2 gap-3 text-sm text-black/75">
+            <div className="mt-5 grid grid-cols-2 gap-3 text-sm">
               <StatCard label="Correct calls" value={state.correctCalls} />
               <StatCard label="Risky accepts" value={state.falseAccepts} />
               <StatCard label="Bad declines" value={state.falseDeclines} />
@@ -107,35 +106,35 @@ export function Scorecard({
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <article className="paper-note rounded-[24px] px-5 py-5">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+            <article className="card rounded-xl px-5 py-5">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
                 Screening style
               </p>
               <p className="font-display mt-3 text-3xl uppercase">{style.label}</p>
-              <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)]">
+              <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
                 {style.description}
               </p>
             </article>
 
-            <article className="paper-note rounded-[24px] px-5 py-5">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+            <article className="card rounded-xl px-5 py-5">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
                 Action pattern
               </p>
-              <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)]">
+              <p className="mt-3 text-sm leading-6">
                 {actionBiasInsight}
               </p>
             </article>
 
-            <article className="paper-note rounded-[24px] px-5 py-5">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+            <article className="card rounded-xl px-5 py-5">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
                 Most-missed risks
               </p>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-[var(--paper-bright)]">
+              <ul className="mt-4 space-y-3 text-sm leading-6">
                 {missedTags.length ? (
                   missedTags.map((tag) => (
                     <li key={tag.tag} className="flex items-center justify-between gap-3">
                       <span>{tag.label}</span>
-                      <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--muted)]">
+                      <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                         {tag.count}
                       </span>
                     </li>
@@ -146,11 +145,11 @@ export function Scorecard({
               </ul>
             </article>
 
-            <article className="paper-note rounded-[24px] px-5 py-5">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+            <article className="card rounded-xl px-5 py-5">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
                 Blind spot
               </p>
-              <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)]">
+              <p className="mt-3 text-sm leading-6">
                 {riskPatternInsight}
               </p>
             </article>
@@ -159,7 +158,7 @@ export function Scorecard({
               <button
                 type="button"
                 onClick={onReplay}
-                className="action-button inline-flex items-center justify-center rounded-full border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--ink)]"
+                className="action-button inline-flex items-center justify-center rounded-full border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--night)]"
               >
                 Play Again
               </button>
@@ -186,7 +185,7 @@ export function Scorecard({
               </button>
             </div>
             {shareStatus ? (
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 {shareStatus}
               </p>
             ) : null}
@@ -194,11 +193,11 @@ export function Scorecard({
         </div>
       </div>
 
-      <div className="dossier-shell paper-panel rounded-[32px] border px-6 py-6 sm:px-8">
+      <div className="card rounded-xl px-6 py-6 sm:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <span className="folder-tab folder-tab-muted">Run Log</span>
         </div>
-        <p className="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+        <p className="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
           Decision log
         </p>
         <div className="mt-5 grid gap-3">
@@ -208,26 +207,26 @@ export function Scorecard({
             return (
               <article
                 key={record.caseId}
-                className="paper-note rounded-[22px] px-4 py-4"
+                className="card rounded-xl px-4 py-4"
               >
                 <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                   <div>
                     <p className="font-display text-2xl uppercase">
                       {index + 1}. {record.clientName}
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-[var(--paper-bright)]">
+                    <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
                       {caseData?.headline}
                     </p>
                   </div>
-                  <div className="grid gap-2 text-sm text-[var(--paper-bright)] sm:grid-cols-2">
+                  <div className="grid gap-2 text-sm sm:grid-cols-2">
                     <p>
-                      <span className="font-mono mr-2 text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+                      <span className="font-mono mr-2 text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                         You chose
                       </span>
                       {ACTION_LABELS[record.action]}
                     </p>
                     <p>
-                      <span className="font-mono mr-2 text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+                      <span className="font-mono mr-2 text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                         Best move
                       </span>
                       {ACTION_LABELS[record.bestAction]}
@@ -245,11 +244,11 @@ export function Scorecard({
 
 function StatCard({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-[18px] border border-black/10 bg-black/4 px-4 py-3">
-      <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/45">
+    <div className="card rounded-xl px-4 py-3">
+      <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
         {label}
       </p>
-      <p className="mt-2 text-2xl font-semibold text-black/80">{value}</p>
+      <p className="mt-2 text-2xl font-semibold">{value}</p>
     </div>
   );
 }

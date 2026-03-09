@@ -15,14 +15,14 @@ export function DeskHeader({
   score,
 }: DeskHeaderProps) {
   return (
-    <header className="dossier-shell paper-panel rounded-[30px] border px-5 py-5 sm:px-6">
+    <header className="card rounded-xl px-5 py-5 sm:px-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-3">
           <div className="flex flex-wrap items-center gap-3">
-            <Link href="/" className="folder-tab hover:brightness-110 transition-[filter]">Intake Desk</Link>
+            <Link href="/" className="folder-tab">Intake Desk</Link>
             <span className="folder-tab folder-tab-muted">{`Day ${day.order}`}</span>
           </div>
-          <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
+          <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)]">
             Intake-Game // Training Desk
           </p>
           <h1 className="font-display mt-2 text-3xl uppercase sm:text-4xl">{day.title}</h1>
@@ -48,16 +48,16 @@ function Metric({
 }) {
   return (
     <div
-      className={`metric-card rounded-[18px] px-4 py-3 ${
-        highlight ? "score-plaque border border-[var(--brass-dark)]/35" : ""
+      className={`rounded-xl px-4 py-3 ${
+        highlight ? "card-accent" : "card"
       }`}
     >
-      <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
+      <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--text-secondary)]">
         {label}
       </p>
       <p
         className={`font-display mt-2 text-2xl uppercase ${
-          highlight ? "text-[var(--ink)]" : ""
+          highlight ? "text-[var(--accent-gold)]" : ""
         }`}
       >
         {value}

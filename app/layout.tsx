@@ -63,7 +63,7 @@ export default function RootLayout({
               href="https://x.com/BitGrateful/"
               target="_blank"
               rel="noreferrer"
-              className="text-[var(--paper-bright)] underline decoration-[var(--accent-gold)]/55 underline-offset-3"
+              className="text-[var(--text-primary)] underline decoration-[var(--accent-gold)]/55 underline-offset-3"
             >
               BitGrateful
             </a>

@@ -8,17 +8,9 @@ export default function Home() {
   const totalScenarios = allDays.reduce((sum, day) => sum + day.cases.length, 0);
 
   return (
-    <main className="desk-stage desk-grid min-h-screen px-5 py-8 text-[var(--paper)] sm:px-8 lg:px-10">
-      <div
-        aria-hidden="true"
-        className="desk-orb left-[-3rem] top-24 h-48 w-48 bg-[var(--accent-red-soft)]"
-      />
-      <div
-        aria-hidden="true"
-        className="desk-orb bottom-12 right-[-2rem] h-56 w-56 bg-[var(--accent-blue-soft)]"
-      />
+    <main className="desk-stage min-h-screen px-5 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-8">
-        <header className="hero-marquee dossier-shell paper-panel grain rounded-[32px] border px-6 py-6 sm:px-8 sm:py-8">
+        <header className="card rounded-xl px-6 py-6 sm:px-8 sm:py-8">
           <div className="grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-center">
             <div className="max-w-3xl space-y-5">
               <div className="flex flex-wrap items-center gap-3">
@@ -26,46 +18,44 @@ export default function Home() {
                 <span className="folder-tab folder-tab-muted">Lawyered</span>
               </div>
               <div className="space-y-4">
-                <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.34em] text-[var(--muted)]">
+                <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.34em] text-[var(--text-secondary)]">
                   Intake-Game
                 </p>
-                <h1 className="font-title title-glow max-w-4xl text-5xl leading-[0.9] sm:text-6xl lg:text-7xl">
+                <h1 className="font-display title-glow max-w-4xl text-5xl uppercase leading-[0.9] sm:text-6xl lg:text-7xl">
                   Intake-Game
                 </h1>
-                <p className="max-w-2xl text-lg leading-7 text-[var(--paper-bright)] sm:text-xl">
+                <p className="max-w-2xl text-lg leading-7 text-[var(--text-secondary)] sm:text-xl">
                   Review a 10-file intake day for a small firm. Open ready files, pause thin
                   ones, and decline the wrong fits.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3 text-sm text-[var(--paper-bright)]">
+              <div className="flex flex-wrap gap-3 text-sm">
                 <span className="stamp text-[var(--accent-red)]">Filter Clients</span>
-                <span className="star-chip">Spot signals</span>
-                <span className="star-chip">{totalScenarios} scenarios</span>
+                <span className="signal-chip rounded-full px-3 py-1 font-medium">Spot signals</span>
+                <span className="signal-chip rounded-full px-3 py-1 font-medium">{totalScenarios} scenarios</span>
               </div>
             </div>
             <div className="relative min-h-[300px]">
-              <div className="mascot-stage stage-card relative overflow-hidden rounded-[34px] border p-5 sm:p-6">
-                <div aria-hidden="true" className="mascot-spotlight" />
+              <div className="card relative overflow-hidden rounded-xl border p-5 sm:p-6">
                 <div className="relative z-10 flex flex-wrap items-center justify-between gap-3">
                   <span className="folder-tab">Meet Lawyered</span>
                   <span className="folder-tab folder-tab-muted">Host</span>
                 </div>
-                <div className="mascot-portrait relative z-10 mt-4">
-                  <div aria-hidden="true" className="mascot-glow" />
+                <div className="relative z-10 mt-4">
                   <Image
                     src="/lawyered.png"
                     alt="Lawyered relaxing behind a desk with sunglasses, coffee, and a laptop."
                     width={1024}
                     height={1024}
                     priority
-                    className="mascot-image mx-auto h-auto w-full max-w-[380px]"
+                    className="mx-auto h-auto w-full max-w-[380px] drop-shadow-[0_12px_12px_rgba(0,0,0,0.5)]"
                   />
                 </div>
-                <div className="relative z-10 mt-4 max-w-xs rounded-[24px] border border-white/12 bg-black/18 px-4 py-4 backdrop-blur-sm">
+                <div className="relative z-10 mt-4 max-w-xs card rounded-xl px-4 py-4">
                   <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent-gold)]">
                     Lawyered note
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--paper-bright)]">
+                  <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
                     Polish is not proof.
                   </p>
                 </div>
@@ -76,7 +66,7 @@ export default function Home() {
                   >
                     Play After Hours
                   </Link>
-                  <p className="text-sm leading-6 text-[var(--muted)]">
+                  <p className="text-sm leading-6 text-[var(--text-secondary)]">
                     Hide from the client glare.
                   </p>
                 </div>
@@ -86,21 +76,21 @@ export default function Home() {
         </header>
 
         <section className="grid gap-6 lg:grid-cols-[1.4fr_0.9fr]">
-          <div className="dossier-shell paper-panel rounded-[30px] border px-6 py-6 sm:px-8">
-            <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+          <div className="card rounded-xl px-6 py-6 sm:px-8">
+            <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
               How To Play
             </p>
             <div className="mt-5 grid gap-4 md:grid-cols-3">
               {ACTION_DETAILS.map((action, index) => (
                 <article
                   key={action.id}
-                  className="decision-card rounded-[24px] border border-[var(--line)] bg-white/3 px-5 py-5"
+                  className="decision-card rounded-xl border border-[var(--line)] bg-white/3 px-5 py-5"
                 >
-                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                     0{index + 1}
                   </p>
                   <p className="font-display text-2xl uppercase">{action.label}</p>
-                  <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)]">
+                  <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
                     {action.description}
                   </p>
                 </article>
@@ -115,33 +105,32 @@ export default function Home() {
                   teaser: day.teaser,
                 }))}
               />
-              <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">
+              <p className="max-w-xl text-sm leading-6 text-[var(--text-secondary)]">
                 Start with Day 1. Later days hide more risk behind cleaner files.
               </p>
             </div>
             {dayLoadErrors.length ? (
-              <div className="paper-note mt-4 rounded-[22px] px-4 py-4 text-sm leading-6 text-[var(--paper-bright)]">
+              <div className="card mt-4 rounded-xl px-4 py-4 text-sm leading-6">
                 Some intake days could not be loaded. The available days still work.
               </div>
             ) : null}
           </div>
 
-          <aside className="hero-ticket paper-sheet rounded-[30px] px-6 py-6">
-            <div className="paper-fold" />
+          <aside className="card rounded-xl px-6 py-6">
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--accent-red)]">
               Read For
             </p>
-            <ul className="mt-5 space-y-4 text-sm leading-6 text-black/80 sm:text-base">
+            <ul className="mt-5 space-y-4 text-sm leading-6 sm:text-base">
               <li>Urgency is a signal, not a verdict.</li>
               <li>Fee friction, lawyer churn, and bad motives raise risk.</li>
               <li>Request More Info is often the correct intake move.</li>
               <li>Messy files can still be viable.</li>
             </ul>
-            <div className="mt-6 rounded-[22px] border border-black/10 bg-black/4 px-4 py-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-black/45">
+            <div className="mt-6 card rounded-xl px-4 py-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                 Goal
               </p>
-              <p className="mt-2 text-sm leading-6 text-black/75">
+              <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
                 Build a healthy practice with disciplined intake calls.
               </p>
             </div>

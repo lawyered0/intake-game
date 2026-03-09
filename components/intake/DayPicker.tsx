@@ -34,29 +34,25 @@ export function DayPicker({ days }: DayPickerProps) {
         <Link
           href={`/play/${primaryDay.id}`}
           aria-label={primaryDay.title.split(":")[0]}
-          className="action-button relative flex w-full flex-col gap-4 overflow-hidden rounded-[28px] border border-[var(--accent-gold)] bg-[linear-gradient(135deg,rgba(255,190,99,0.98),rgba(255,151,105,0.94))] px-5 py-5 text-[var(--ink)] shadow-[0_20px_44px_rgba(0,0,0,0.18)] sm:px-6 sm:py-6"
+          className="action-button card-accent relative flex w-full flex-col gap-4 overflow-hidden rounded-xl px-5 py-5 sm:px-6 sm:py-6"
         >
-          <div
-            aria-hidden="true"
-            className="absolute inset-y-0 right-0 w-36 bg-white/12 blur-2xl"
-          />
-          <div className="relative z-10 flex items-start justify-between gap-4">
+          <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-black/55">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 Start Here
               </p>
               <p className="mt-1 font-display text-3xl uppercase sm:text-4xl">
                 {primaryDay.title.split(":")[0]}
               </p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-black/55">
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                 {primaryDay.theme}
               </p>
             </div>
-            <span className="rounded-full border border-black/15 bg-white/22 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-black/70">
+            <span className="rounded-full border border-white/10 bg-white/6 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
               {getCompletionLabel(completions[primaryDay.id])}
             </span>
           </div>
-          <p className="relative z-10 max-w-3xl text-sm leading-6 text-black/72 sm:text-base">
+          <p className="max-w-3xl text-sm leading-6 text-[var(--text-secondary)] sm:text-base">
             {primaryDay.teaser}
           </p>
         </Link>
@@ -72,21 +68,21 @@ export function DayPicker({ days }: DayPickerProps) {
                 key={day.id}
                 href={`/play/${day.id}`}
                 aria-label={day.title.split(":")[0]}
-                className="action-button flex h-full flex-col justify-between gap-4 rounded-[24px] border border-[var(--line)] bg-white/4 px-5 py-4 text-[var(--paper-bright)]"
+                className="action-button card flex h-full flex-col justify-between gap-4 rounded-xl px-5 py-4"
               >
                 <div className="space-y-2">
                   <div className="flex items-start justify-between gap-4">
                     <p className="font-display text-2xl uppercase">
                       {day.title.split(":")[0]}
                     </p>
-                    <span className="rounded-full border border-current/20 bg-black/8 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.18em]">
+                    <span className="rounded-full border border-white/10 bg-white/6 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
                       {getCompletionLabel(completion)}
                     </span>
                   </div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                     {day.theme}
                   </p>
-                  <p className="text-sm leading-6 text-[var(--paper-bright)]">
+                  <p className="text-sm leading-6 text-[var(--text-secondary)]">
                     {day.teaser}
                   </p>
                 </div>

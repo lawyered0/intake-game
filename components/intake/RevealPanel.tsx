@@ -17,7 +17,7 @@ export function RevealPanel({ record, onContinue, isLastCase }: RevealPanelProps
   const framing = getRevealFraming(record);
 
   return (
-    <div className="dossier-shell paper-panel rounded-[30px] border px-5 py-5 sm:px-6">
+    <div className="card rounded-xl px-5 py-5 sm:px-6">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-3">
@@ -31,7 +31,7 @@ export function RevealPanel({ record, onContinue, isLastCase }: RevealPanelProps
               <p className="font-display text-3xl uppercase sm:text-4xl">
                 {record.outcome.headline}
               </p>
-              <p className="mt-2 text-sm uppercase tracking-[0.24em] text-[var(--muted)]">
+              <p className="mt-2 text-sm uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 Score{" "}
                 {record.outcome.scoreDelta > 0
                   ? `+${record.outcome.scoreDelta}`
@@ -40,8 +40,8 @@ export function RevealPanel({ record, onContinue, isLastCase }: RevealPanelProps
             </div>
           </div>
           {!record.wasBest ? (
-            <div className="paper-note rounded-[20px] px-4 py-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+            <div className="card rounded-xl px-4 py-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 Better move
               </p>
               <p className="mt-2 font-display text-2xl uppercase">
@@ -52,38 +52,38 @@ export function RevealPanel({ record, onContinue, isLastCase }: RevealPanelProps
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="paper-note space-y-4 rounded-[22px] px-4 py-4">
+          <div className="card space-y-4 rounded-xl px-4 py-4">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 Intake read
                 <span className="sr-only"> Intake read for this decision</span>
               </p>
-              <p className="mt-3 text-sm leading-6 text-[var(--paper)] sm:text-base">
+              <p className="mt-3 text-sm leading-6 sm:text-base">
                 {framing.summary}
               </p>
             </div>
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 Assessment
               </p>
-              <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)] sm:text-base">
+              <p className="mt-3 text-sm leading-6 sm:text-base">
                 {record.outcome.explanation}
               </p>
             </div>
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                 Process point
               </p>
-              <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)] sm:text-base">
+              <p className="mt-3 text-sm leading-6 sm:text-base">
                 {record.outcome.whyItMatters}
               </p>
             </div>
             {record.outcome.followUpQuestion ? (
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
                   Next question
                 </p>
-                <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)] sm:text-base">
+                <p className="mt-3 text-sm leading-6 sm:text-base">
                   {record.outcome.followUpQuestion}
                 </p>
               </div>
@@ -100,7 +100,7 @@ export function RevealPanel({ record, onContinue, isLastCase }: RevealPanelProps
           type="button"
           onClick={onContinue}
           aria-label={isLastCase ? "View scorecard" : "Continue to next file"}
-          className="action-button inline-flex items-center justify-center rounded-full border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--ink)]"
+          className="action-button inline-flex items-center justify-center rounded-full border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--night)]"
         >
           {isLastCase ? "View Score" : "Next File"}
         </button>
@@ -181,11 +181,11 @@ function getRevealFraming(record: DecisionRecord) {
 
 function DetailList({ title, items }: { title: string; items: string[] }) {
   return (
-    <article className="paper-note rounded-[22px] px-4 py-4">
-      <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+    <article className="card rounded-xl px-4 py-4">
+      <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--text-secondary)]">
         {title}
       </p>
-      <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--paper-bright)]">
+      <ul className="mt-3 space-y-2 text-sm leading-6">
         {items.map((item) => (
           <li key={item}>• {item}</li>
         ))}

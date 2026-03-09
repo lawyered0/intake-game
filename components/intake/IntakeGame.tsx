@@ -74,15 +74,7 @@ export function IntakeGame({ day, nextDay = null }: IntakeGameProps) {
   };
 
   return (
-    <main className="desk-stage desk-grid min-h-screen px-5 py-8 sm:px-8">
-      <div
-        aria-hidden="true"
-        className="desk-orb left-[-2rem] top-32 h-36 w-36 bg-[var(--accent-red-soft)]"
-      />
-      <div
-        aria-hidden="true"
-        className="desk-orb bottom-16 right-[-2rem] h-48 w-48 bg-[var(--accent-green-soft)]"
-      />
+    <main className="desk-stage min-h-screen px-5 py-8 sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-6">
         <DeskHeader
           day={day}
@@ -103,16 +95,15 @@ export function IntakeGame({ day, nextDay = null }: IntakeGameProps) {
             <CaseFile intakeCase={currentCase} />
             <div className="order-first flex flex-col gap-5 xl:order-none xl:sticky xl:top-8 xl:self-start">
               <ActionTray onSelect={handleSelect} />
-              <section className="dossier-shell paper-panel rounded-[30px] border px-5 py-5 sm:px-6">
-                <div className="grid gap-4 md:grid-cols-[112px_1fr] md:items-center">
-                  <div className="mascot-mini paper-sheet rounded-[22px] p-3">
-                    <div aria-hidden="true" className="mascot-mini-glow" />
+              <section className="card rounded-xl px-5 py-5 sm:px-6">
+                <div className="grid gap-4 md:grid-cols-[92px_1fr] md:items-center">
+                  <div className="card rounded-xl p-3">
                     <Image
                       src="/lawyered.png"
                       alt="Lawyered sitting back behind a desk."
                       width={1024}
                       height={1024}
-                      className="relative z-10 mx-auto h-auto w-full max-w-[92px]"
+                      className="mx-auto h-auto w-full max-w-[80px] drop-shadow-[0_12px_12px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                   <div>
@@ -120,31 +111,31 @@ export function IntakeGame({ day, nextDay = null }: IntakeGameProps) {
                       <span className="folder-tab">Lawyered View</span>
                       <span className="folder-tab folder-tab-muted">Intake</span>
                     </div>
-                    <p className="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+                    <p className="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
                       Intake note
                     </p>
-                    <p className="mt-3 text-sm leading-6 text-[var(--paper-bright)] sm:text-base">
+                    <p className="mt-3 text-sm leading-6 sm:text-base">
                       {lawyeredGuidance?.note}
                     </p>
-                    <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
+                    <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                       {lawyeredGuidance?.lens}
                     </p>
                   </div>
                 </div>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  <div className="paper-note rounded-[20px] px-4 py-4">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
+                  <div className="card rounded-xl px-4 py-4">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                       Pressure test
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-[var(--paper-bright)]">
+                    <p className="mt-2 text-sm leading-6">
                       {lawyeredGuidance?.pressureTest}
                     </p>
                   </div>
-                  <div className="paper-note rounded-[20px] px-4 py-4">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--muted)]">
+                  <div className="card rounded-xl px-4 py-4">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                       Do not assume
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-[var(--paper-bright)]">
+                    <p className="mt-2 text-sm leading-6">
                       {lawyeredGuidance?.doNotAssume}
                     </p>
                   </div>

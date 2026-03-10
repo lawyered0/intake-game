@@ -17,7 +17,7 @@ export function NegotiationBriefing({
     <section className="screen-enter rpg-panel">
       <div className="rpg-panel-header px-6 sm:px-8">
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent-gold)]">
-          Mission Briefing
+          Case Briefing
         </span>
         <div className="flex items-center gap-2">
           <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--text-secondary)]">
@@ -137,10 +137,10 @@ export function NegotiationBriefing({
             <button
               type="button"
               onClick={onStart}
-              aria-label="Begin the negotiation encounter"
+              aria-label="Begin the negotiation"
               className="action-button mt-2 inline-flex w-full items-center justify-center rounded-lg border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--night)]"
             >
-              Begin Encounter
+              Enter the Room
             </button>
           </div>
         </div>

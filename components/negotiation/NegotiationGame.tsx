@@ -84,7 +84,7 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
             href="/"
             className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors"
           >
-            Retreat
+            Exit
           </a>
           <span className="font-display text-lg uppercase text-[var(--text-primary)]">
             {scenario.title.split(":")[0] || scenario.title}

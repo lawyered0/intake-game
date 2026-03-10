@@ -123,7 +123,7 @@ export function NegotiationScorecard({
         <div className="rpg-panel">
           <div className="rpg-panel-header">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
-              Class
+              Style
             </p>
           </div>
           <div className="p-5">

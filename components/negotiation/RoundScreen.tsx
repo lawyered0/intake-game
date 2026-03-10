@@ -54,7 +54,7 @@ export function RoundScreen({
 }: RoundScreenProps) {
   return (
     <div className="screen-enter space-y-4">
-      {/* Zone 1: Encounter header + turn tracker */}
+      {/* Zone 1: Round header + turn tracker */}
       <div className="rpg-panel">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
@@ -78,13 +78,13 @@ export function RoundScreen({
       {/* Zone 2: Stats panel */}
       <MeterDisplay meters={meters} previousMeters={previousMeters} />
 
-      {/* Zone 3: Encounter + Actions side by side */}
+      {/* Zone 3: Dialogue + Actions side by side */}
       <div className="grid gap-4 lg:grid-cols-[1fr_1fr]">
-        {/* Encounter text */}
+        {/* Dialogue text */}
         <div className="rpg-panel flex flex-col">
           <div className="rpg-panel-header">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent-gold)]">
-              Encounter
+              Dialogue
             </p>
           </div>
           <div className="p-5 flex-1">

@@ -92,7 +92,7 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
         {/* Header */}
         <div className="rpg-panel mb-4 flex items-center justify-between px-4 py-2">
           <a
-            href="/"
+            href="/negotiate"
             className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors"
           >
             Exit

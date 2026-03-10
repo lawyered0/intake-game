@@ -1,54 +1,52 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import Home from "@/app/page";
-import { DAY_COMPLETIONS_KEY } from "@/lib/progress";
 
 afterEach(() => {
   cleanup();
-  window.localStorage.clear();
-  window.sessionStorage.clear();
 });
 
-describe("home page", () => {
-  it("links to all playable days from the registry", () => {
+describe("splash page", () => {
+  it("renders the Lawyered heading", () => {
     render(<Home />);
 
-    expect(screen.getByRole("link", { name: /play after hours/i })).toHaveAttribute(
-      "href",
-      "/after-hours",
-    );
-    expect(screen.getByRole("link", { name: /^day 1$/i })).toHaveAttribute(
-      "href",
-      "/play/day-1",
-    );
-    expect(screen.getByRole("link", { name: /^day 2$/i })).toHaveAttribute(
-      "href",
-      "/play/day-2",
-    );
-    expect(screen.getByRole("link", { name: /^day 3$/i })).toHaveAttribute(
-      "href",
-      "/play/day-3",
-    );
+    expect(
+      screen.getByRole("heading", { level: 1, name: /lawyered/i }),
+    ).toBeInTheDocument();
   });
 
-  it("shows stored best progress from local storage", async () => {
-    window.localStorage.setItem(
-      DAY_COMPLETIONS_KEY,
-      JSON.stringify({
-        "day-1": {
-          bestGrade: "A",
-          bestScore: 30,
-          lastGrade: "B",
-          lastScore: 18,
-          attempts: 2,
-          completedAt: Date.now(),
-          lastPlayedAt: Date.now(),
-        },
-      }),
-    );
-
+  it("links to the Closing Table negotiation hub", () => {
     render(<Home />);
 
-    expect(await screen.findByText(/best: a/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /closing table/i }),
+    ).toHaveAttribute("href", "/negotiate");
+  });
+
+  it("links to the Intake Training hub", () => {
+    render(<Home />);
+
+    expect(
+      screen.getByRole("link", { name: /intake training/i }),
+    ).toHaveAttribute("href", "/play");
+  });
+
+  it("links to the After Hours minigame", () => {
+    render(<Home />);
+
+    expect(
+      screen.getByRole("link", { name: /after hours/i }),
+    ).toHaveAttribute("href", "/after-hours");
+  });
+
+  it("links to the external LSAT game in a new tab", () => {
+    render(<Home />);
+
+    const lsatLink = screen.getByRole("link", { name: /lsat fun time/i });
+    expect(lsatLink).toHaveAttribute(
+      "href",
+      "https://lawyereds-lsat-game.vercel.app/",
+    );
+    expect(lsatLink).toHaveAttribute("target", "_blank");
   });
 });

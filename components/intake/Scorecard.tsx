@@ -163,7 +163,7 @@ export function Scorecard({
                 Play Again
               </button>
               <Link
-                href="/"
+                href="/play"
                 className="action-button inline-flex items-center justify-center rounded-full border border-[var(--line)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em]"
               >
                 Home

@@ -19,7 +19,7 @@ export function DeskHeader({
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-3">
           <div className="flex flex-wrap items-center gap-3">
-            <Link href="/" className="folder-tab">Intake Desk</Link>
+            <Link href="/play" className="folder-tab">Intake Desk</Link>
             <span className="folder-tab folder-tab-muted">{`Day ${day.order}`}</span>
           </div>
           <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.3em] text-[var(--text-secondary)]">

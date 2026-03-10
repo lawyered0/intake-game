@@ -52,7 +52,7 @@ export default async function NegotiatePage({ params }: NegotiatePageProps) {
                 {record?.error ? record.error : ""}
               </p>
               <Link
-                href="/"
+                href="/negotiate"
                 className="action-button inline-flex items-center justify-center rounded-full border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--night)]"
               >
                 Back Home

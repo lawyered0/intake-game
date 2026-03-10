@@ -198,7 +198,7 @@ export function NegotiationScorecard({
           Play Again
         </button>
         <Link
-          href="/"
+          href="/negotiate"
           className="action-button inline-flex items-center justify-center rounded-lg border border-[var(--line)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em]"
         >
           Home

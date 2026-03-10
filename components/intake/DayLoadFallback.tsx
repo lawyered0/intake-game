@@ -28,7 +28,7 @@ export function DayLoadFallback({ dayId, error }: DayLoadFallbackProps) {
             ) : null}
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/"
+                href="/play"
                 className="action-button inline-flex items-center justify-center rounded-full border border-[var(--accent-gold)] bg-[var(--accent-gold)] px-5 py-3 font-display text-lg uppercase tracking-[0.08em] text-[var(--night)]"
               >
                 Back Home

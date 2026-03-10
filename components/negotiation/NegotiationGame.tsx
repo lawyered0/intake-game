@@ -76,26 +76,24 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
       : 0;
 
   return (
-    <main className="negotiate-stage min-h-screen px-5 py-8 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-4xl">
+    <main className="negotiate-stage min-h-screen px-5 py-6 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-5xl">
         {/* Header */}
-        <div className="card mb-6 flex items-center justify-between rounded-xl px-5 py-3">
-          <div className="flex items-center gap-3">
-            <a
-              href="/"
-              className="folder-tab action-button"
-            >
-              Home
-            </a>
-            <span className="folder-tab folder-tab-muted">
-              {scenario.title.split(":")[0] || scenario.title}
-            </span>
-          </div>
+        <div className="rpg-panel mb-4 flex items-center justify-between px-4 py-2">
+          <a
+            href="/"
+            className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors"
+          >
+            Retreat
+          </a>
+          <span className="font-display text-lg uppercase text-[var(--text-primary)]">
+            {scenario.title.split(":")[0] || scenario.title}
+          </span>
           {state.screen === "round" || state.screen === "feedback" ? (
-            <p className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--text-secondary)]">
-              Round {state.currentRound}/{scenario.totalRounds}
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--accent-gold)]">
+              Turn {state.currentRound}/{scenario.totalRounds}
             </p>
-          ) : null}
+          ) : <div />}
         </div>
 
         {/* Screens */}

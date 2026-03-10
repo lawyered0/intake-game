@@ -1,17 +1,13 @@
 import { useEffect, useRef, useState } from "react";
+import type { Meters } from "@/types/negotiation";
+import { STAT_CSS_VAR, STAT_FILL_CLASS } from "@/lib/meter-theme";
 
 interface MeterBarProps {
   label: string;
   value: number;
   previousValue?: number;
-  inverted?: boolean; // true for riskExposure (lower is better)
-}
-
-function getFillClass(value: number, inverted: boolean): string {
-  const effective = inverted ? 100 - value : value;
-  if (effective >= 65) return "meter-fill-green";
-  if (effective >= 35) return "meter-fill-gold";
-  return "meter-fill-red";
+  inverted?: boolean;
+  meterKey: keyof Meters;
 }
 
 export function MeterBar({
@@ -19,6 +15,7 @@ export function MeterBar({
   value,
   previousValue,
   inverted = false,
+  meterKey,
 }: MeterBarProps) {
   const fillRef = useRef<HTMLDivElement>(null);
   const [showPulse, setShowPulse] = useState(false);
@@ -26,32 +23,40 @@ export function MeterBar({
   useEffect(() => {
     if (previousValue !== undefined && previousValue !== value) {
       setShowPulse(true);
-      const timeout = setTimeout(() => setShowPulse(false), 600);
+      const timeout = setTimeout(() => setShowPulse(false), 800);
       return () => clearTimeout(timeout);
     }
   }, [value, previousValue]);
 
   const delta =
     previousValue !== undefined ? value - previousValue : undefined;
+  const displayDelta = delta !== undefined ? (inverted ? -delta : delta) : undefined;
+  const statColor = STAT_CSS_VAR[meterKey];
+  const fillClass = STAT_FILL_CLASS[meterKey];
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1">
       <div className="flex items-center justify-between gap-3">
-        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
+        <p
+          className="font-mono text-[10px] uppercase tracking-[0.22em] font-medium"
+          style={{ color: statColor }}
+        >
           {label}
         </p>
         <div className="flex items-center gap-2">
-          {delta !== undefined && delta !== 0 ? (
+          {displayDelta !== undefined && displayDelta !== 0 ? (
             <span
-              className={`font-mono text-[11px] font-medium ${
-                (inverted ? -delta : delta) > 0 ? "effect-up" : "effect-down"
+              className={`font-mono text-sm font-bold tabular-nums stat-delta-float ${
+                displayDelta > 0 ? "stat-delta-up" : "stat-delta-down"
               }`}
             >
-              {(inverted ? -delta : delta) > 0 ? "+" : ""}
-              {inverted ? -delta : delta}
+              {displayDelta > 0 ? "+" : ""}{displayDelta}
             </span>
           ) : null}
-          <span className="font-mono text-xs tabular-nums text-[var(--text-primary)]">
+          <span
+            className="font-mono text-lg font-bold tabular-nums"
+            style={{ color: statColor }}
+          >
             {value}
           </span>
         </div>
@@ -59,7 +64,7 @@ export function MeterBar({
       <div className="meter-bar-track">
         <div
           ref={fillRef}
-          className={`meter-bar-fill ${getFillClass(value, inverted)} ${showPulse ? "meter-pulse" : ""}`}
+          className={`meter-bar-fill ${fillClass} ${showPulse ? "meter-pulse" : ""}`}
           style={{ width: `${value}%` }}
           role="meter"
           aria-valuenow={value}

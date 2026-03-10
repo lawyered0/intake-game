@@ -13,6 +13,13 @@
   --muted: #888888;
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
+  /* RPG per-stat identity colors */
+  --stat-deal: #5baaff;
+  --stat-risk: #ff5f84;
+  --stat-rel: #a78bfa;
+  --stat-sat: #48d6ba;
+  --panel-bg: rgba(8, 8, 14, 0.85);
+  --panel-border: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {
@@ -119,12 +126,12 @@ a {
   position: relative;
   isolation: isolate;
   background:
-    /* Overhead light pool – warm pendant lamp */
-    radial-gradient(ellipse 60% 50% at 50% -5%, rgba(255, 190, 99, 0.07) 0%, transparent 70%),
-    /* Edge vignette – draws focus inward */
-    radial-gradient(ellipse 70% 60% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.4) 100%),
-    /* Dark wood desk surface */
-    linear-gradient(180deg, #0d0b09 0%, #12100d 40%, #0f0d0a 100%);
+    /* Cool-toned top light cone */
+    radial-gradient(ellipse 50% 40% at 50% -10%, rgba(91, 170, 255, 0.04) 0%, transparent 70%),
+    /* Tight dramatic vignette */
+    radial-gradient(ellipse 60% 55% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.6) 100%),
+    /* Deep blue-black base */
+    linear-gradient(180deg, #060810 0%, #0a0c14 40%, #080a10 100%);
 }
 
 .negotiate-stage::before {
@@ -133,9 +140,11 @@ a {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  /* Subtle grain texture via SVG noise */
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
+  /* Subtle pixel-grid overlay */
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 16px 16px;
   opacity: 0.4;
 }
 
@@ -149,8 +158,8 @@ a {
   pointer-events: none;
   z-index: 0;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(255, 190, 99, 0.06) 0%, transparent 70%);
-  animation: ambient-flicker 8s ease-in-out infinite;
+  background: radial-gradient(ellipse at center, rgba(91, 170, 255, 0.04) 0%, transparent 70%);
+  animation: ambient-flicker 10s ease-in-out infinite;
 }
 
 .negotiate-stage > * {
@@ -159,7 +168,7 @@ a {
 }
 
 @keyframes ambient-flicker {
-  0%, 100% { opacity: 0.8; }
+  0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
 }
 
@@ -230,18 +239,22 @@ a {
 /* ── Negotiation meters ────────────────────────── */
 
 .meter-bar-track {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
   overflow: hidden;
-  height: 8px;
+  height: 22px;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .meter-bar-fill {
   height: 100%;
-  border-radius: 5px;
-  transition: width 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+  transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  min-width: 3%;
 }
 
 .meter-bar-fill::after {
@@ -249,9 +262,17 @@ a {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent);
+  /* Horizontal shine stripe — classic RPG HP bar look */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
 }
 
+/* Legacy threshold-based fills (still used by intake game) */
 .meter-fill-green {
   background: linear-gradient(90deg, #2ba88a, var(--accent-green));
   box-shadow: 0 0 12px rgba(72, 214, 186, 0.25);
@@ -267,13 +288,58 @@ a {
   box-shadow: 0 0 12px rgba(255, 95, 132, 0.25);
 }
 
+/* Per-stat RPG identity colors */
+.meter-fill-deal {
+  background: linear-gradient(90deg, #3580d4, var(--stat-deal));
+  box-shadow: 0 0 16px rgba(91, 170, 255, 0.3);
+}
+
+.meter-fill-risk {
+  background: linear-gradient(90deg, #c44060, var(--stat-risk));
+  box-shadow: 0 0 16px rgba(255, 95, 132, 0.3);
+}
+
+.meter-fill-rel {
+  background: linear-gradient(90deg, #7c5cc4, var(--stat-rel));
+  box-shadow: 0 0 16px rgba(167, 139, 250, 0.3);
+}
+
+.meter-fill-sat {
+  background: linear-gradient(90deg, #2ba88a, var(--stat-sat));
+  box-shadow: 0 0 16px rgba(72, 214, 186, 0.3);
+}
+
 .meter-pulse {
-  animation: meter-pulse 600ms ease;
+  animation: meter-pulse 800ms ease;
 }
 
 @keyframes meter-pulse {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.4); }
+  0% { filter: brightness(1); }
+  30% { filter: brightness(1.6); }
+  60% { filter: brightness(1.3); }
+  100% { filter: brightness(1); }
+}
+
+/* ── RPG panel system ────────────────────────── */
+
+.rpg-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 20px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.rpg-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px 8px 0 0;
 }
 
 /* ── Speaker monogram ────────────────────────── */
@@ -289,6 +355,110 @@ a {
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 0 20px rgba(255, 190, 99, 0.10);
+}
+
+/* ── Stat delta animations (RPG damage numbers) ── */
+
+.stat-delta-float {
+  animation: delta-float 800ms ease-out forwards;
+}
+
+@keyframes delta-float {
+  0% { opacity: 0; transform: translateY(0) scale(0.8); }
+  20% { opacity: 1; transform: translateY(-4px) scale(1.1); }
+  100% { opacity: 1; transform: translateY(-8px) scale(1); }
+}
+
+.stat-delta-up {
+  color: var(--accent-green);
+  text-shadow: 0 0 8px rgba(72, 214, 186, 0.4);
+}
+
+.stat-delta-down {
+  color: var(--accent-red);
+  text-shadow: 0 0 8px rgba(255, 95, 132, 0.4);
+}
+
+/* ── Turn tracker (segmented bar) ────────────── */
+
+.turn-tracker {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 28px;
+}
+
+.turn-segment {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono-family), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 300ms ease;
+}
+
+.turn-segment:last-child {
+  border-right: none;
+}
+
+.turn-segment-complete {
+  background: rgba(255, 190, 99, 0.15);
+  color: var(--accent-gold);
+}
+
+.turn-segment-active {
+  background: rgba(255, 190, 99, 0.25);
+  color: var(--accent-gold);
+  box-shadow: inset 0 0 12px rgba(255, 190, 99, 0.15);
+  animation: segment-pulse 2s ease-in-out infinite;
+}
+
+.turn-segment-future {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes segment-pulse {
+  0%, 100% { background: rgba(255, 190, 99, 0.25); }
+  50% { background: rgba(255, 190, 99, 0.35); }
+}
+
+/* ── Ability card (RPG option) ───────────────── */
+
+.ability-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  transition:
+    border-color 180ms ease,
+    transform 120ms ease,
+    box-shadow 180ms ease;
+}
+
+.ability-card:hover {
+  border-color: rgba(255, 190, 99, 0.4);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(255, 190, 99, 0.1),
+    inset 0 0 20px rgba(255, 190, 99, 0.03);
+}
+
+.ability-card:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
 /* ── Dialogue bubble ──────────────────────────── */

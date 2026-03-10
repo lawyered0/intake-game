@@ -36,7 +36,7 @@ function EffectPreview({ effects }: { effects: MeterEffects }) {
               : "bg-[var(--accent-red-soft)] text-[var(--accent-red)]"
           }`}
         >
-          {entry.isGood ? "↑" : "↓"} {entry.label}
+          {entry.delta > 0 ? "↑" : "↓"} {entry.label}
         </span>
       ))}
     </div>

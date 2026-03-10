@@ -19,7 +19,7 @@ export function FeedbackOverlay({
       <MeterDisplay meters={meters} previousMeters={previousMeters} />
 
       {record.feedback ? (
-        <div className="card-accent rounded-xl px-5 py-5">
+        <div className="card-accent feedback-card rounded-xl px-5 py-5">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent-gold)]">
             Read
           </p>

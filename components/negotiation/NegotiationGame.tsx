@@ -76,7 +76,7 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
       : 0;
 
   return (
-    <main className="desk-stage min-h-screen px-5 py-8 sm:px-8 lg:px-10">
+    <main className="negotiate-stage min-h-screen px-5 py-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <div className="card mb-6 flex items-center justify-between rounded-xl px-5 py-3">
@@ -110,6 +110,7 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
             previousMeters={previousMeters}
             totalRounds={scenario.totalRounds}
             completedRounds={completedRounds}
+            counterpartyRole={scenario.counterpartyRole}
             onSelectOption={handleSelectOption}
           />
         ) : null}

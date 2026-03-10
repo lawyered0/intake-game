@@ -75,11 +75,11 @@ export function NegotiationScorecard({
           {/* Left: grade + outcome */}
           <div className="space-y-5">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--accent-gold)]">
-                Deal closed
+              <p className={`verdict-stamp font-mono ${outcomeNarrative.toLowerCase().includes("impasse") || outcomeNarrative.toLowerCase().includes("walk") ? "verdict-impasse" : "verdict-closed"}`}>
+                {outcomeNarrative.toLowerCase().includes("impasse") || outcomeNarrative.toLowerCase().includes("walk") ? "Impasse" : "Deal closed"}
               </p>
               <div className="mt-4 flex items-end gap-4">
-                <div className="card-accent rounded-xl px-6 py-5">
+                <div className="grade-stamp">
                   <p className="font-display text-7xl leading-none text-[var(--accent-gold)] title-glow sm:text-8xl">
                     {grade}
                   </p>
@@ -105,11 +105,11 @@ export function NegotiationScorecard({
               ) : null}
             </div>
 
-            <div className="card rounded-xl px-5 py-4">
+            <div className="card rounded-xl px-5 py-4" style={{ borderLeft: "3px solid rgba(255, 190, 99, 0.35)" }}>
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--text-secondary)]">
                 Outcome
               </p>
-              <p className="mt-2 text-base leading-7">{outcomeNarrative}</p>
+              <p className="mt-2 text-base leading-8">{outcomeNarrative}</p>
             </div>
 
             <MeterDisplay meters={state.meters} />

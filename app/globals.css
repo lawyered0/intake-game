@@ -177,6 +177,168 @@ a {
   outline-offset: 2px;
 }
 
+/* ── Negotiation meters ────────────────────────── */
+
+.meter-bar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.meter-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.meter-bar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), transparent);
+}
+
+.meter-fill-green {
+  background: linear-gradient(90deg, #2ba88a, var(--accent-green));
+  box-shadow: 0 0 12px rgba(72, 214, 186, 0.25);
+}
+
+.meter-fill-gold {
+  background: linear-gradient(90deg, #d9963a, var(--accent-gold));
+  box-shadow: 0 0 12px rgba(255, 190, 99, 0.25);
+}
+
+.meter-fill-red {
+  background: linear-gradient(90deg, #c44060, var(--accent-red));
+  box-shadow: 0 0 12px rgba(255, 95, 132, 0.25);
+}
+
+.meter-pulse {
+  animation: meter-pulse 600ms ease;
+}
+
+@keyframes meter-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.4); }
+}
+
+/* ── Dialogue bubble ──────────────────────────── */
+
+.dialogue-bubble {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.dialogue-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 28px;
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transform: rotate(45deg);
+}
+
+/* ── Option card ──────────────────────────────── */
+
+.option-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  transition:
+    border-color 180ms ease,
+    transform 120ms ease,
+    box-shadow 180ms ease;
+}
+
+.option-card:hover {
+  border-color: rgba(255, 190, 99, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 190, 99, 0.08);
+}
+
+.option-card:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* ── Round progress dots ──────────────────────── */
+
+.round-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 300ms ease;
+}
+
+.round-dot-complete {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 8px rgba(255, 190, 99, 0.3);
+}
+
+.round-dot-active {
+  background: transparent;
+  border-color: var(--accent-gold);
+  border-width: 2px;
+  box-shadow: 0 0 12px rgba(255, 190, 99, 0.4);
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 190, 99, 0.3); }
+  50% { box-shadow: 0 0 16px rgba(255, 190, 99, 0.5); }
+}
+
+.round-connector {
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.round-connector-complete {
+  background: rgba(255, 190, 99, 0.3);
+}
+
+/* ── Screen transition ────────────────────────── */
+
+.screen-enter {
+  animation: screen-fade-in 300ms ease forwards;
+}
+
+@keyframes screen-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Meter effect indicators ──────────────────── */
+
+.effect-up {
+  color: var(--accent-green);
+}
+
+.effect-down {
+  color: var(--accent-red);
+}
+
+.effect-neutral {
+  color: var(--text-secondary);
+}
+
 /* ── Pixel mini-game (untouched) ────────────────── */
 
 .pixel-shell {

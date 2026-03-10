@@ -1,0 +1,584 @@
+{
+  "id": "startup-acquisition",
+  "title": "The Startup Acquisition",
+  "subtitle": "An acqui-hire where the talent matters more than the tech",
+  "dealType": "M&A",
+  "difficulty": 1,
+  "estimatedMinutes": 4,
+  "playerRole": "Outside counsel for BuyerCo",
+  "counterpartyRole": "Alex Chen, Founder & CEO of NovaMind AI",
+  "totalRounds": 6,
+  "briefing": {
+    "situation": "BuyerCo wants to acqui-hire NovaMind AI, a 12-person startup with a strong ML engineering team. The technology itself is early-stage, but the team built it and BuyerCo's CTO considers them a perfect cultural fit. Founder Alex Chen has a competing offer and deep emotional ties to the product.",
+    "clientGoals": [
+      "Acquire NovaMind at or below $4M total consideration, with at least 60% of the team retained for 18+ months.",
+      "Secure full IP assignment of all NovaMind technology with no carve-outs or field-of-use restrictions.",
+      "Structure retention bonuses to vest over time so the team stays motivated through integration."
+    ],
+    "batna": "BuyerCo can recruit individual engineers directly, which would cost roughly $2.8M in signing bonuses and take 4-6 months, but they would get no IP and likely lose 3-4 of the best people to the competing offer.",
+    "constraints": [
+      "Board-approved ceiling is $4.5M all-in. Anything above that requires a new board vote that will delay closing by 3 weeks.",
+      "BuyerCo's standard retention package is 24-month cliff vesting. Anything shorter needs VP-level sign-off.",
+      "Legal has flagged that NovaMind has one pending patent application that must be included or the deal loses most of its IP value."
+    ],
+    "intelOnOtherSide": [
+      "Alex's competing offer is from DataForge Inc. for approximately $4.8M, but it would require relocating the team to Austin and Alex has said publicly he dislikes that idea.",
+      "Three of NovaMind's senior engineers have young families and strongly prefer to stay local. Alex is protective of them.",
+      "Alex turned down a $6M offer last year because the buyer wanted to shelve the product. He cares deeply about the technology being used."
+    ]
+  },
+  "initialMeters": {
+    "dealValue": 50,
+    "riskExposure": 30,
+    "relationship": 60,
+    "clientSatisfaction": 50
+  },
+  "startNodeId": "r1-opening",
+  "nodes": {
+    "r1-opening": {
+      "id": "r1-opening",
+      "round": 1,
+      "speakerName": "Alex Chen",
+      "narration": "Alex leans forward across the conference table. \"Look, I'll be straight with you. We've built something real at NovaMind, and I've got another offer on the table. I'm looking for $5.5 million, full team retention guarantees, and I want assurances the product won't be mothballed. That's my starting point.\"",
+      "options": [
+        {
+          "id": "r1-anchor-low",
+          "label": "Anchor at $2.8M",
+          "description": "Counter aggressively with a $2.8M offer based on individual recruiting costs, framing it as the market rate for talent acquisition without proven revenue.",
+          "tags": ["anchoring", "competitive"],
+          "meterEffects": {
+            "dealValue": 10,
+            "riskExposure": 5,
+            "relationship": -15,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r2-anchor-low",
+          "feedback": "Anchoring low is a classic opening tactic. By setting a reference point near your BATNA ($2.8M recruiting cost), you shift the negotiation range downward. The risk is relational damage — Alex may feel insulted. Research shows that aggressive first offers capture more value but only when paired with a credible rationale, which you provided."
+        },
+        {
+          "id": "r1-meet-close",
+          "label": "Offer $4.2M with conditions",
+          "description": "Propose $4.2M but tie it to full IP assignment, an 18-month retention commitment from key engineers, and a 90-day closing timeline.",
+          "tags": ["compromising", "analytical"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": -5,
+            "relationship": 5,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r2-close-offer",
+          "feedback": "Coming in near your ceiling with conditions attached is a bracketing strategy. You're signaling seriousness while loading the offer with terms that protect your client. The danger is leaving little room to negotiate upward if Alex pushes back, but you've preserved the relationship by showing respect for his ask."
+        },
+        {
+          "id": "r1-nonprice",
+          "label": "Defer price, explore interests",
+          "description": "Acknowledge the number but pivot: ask what matters most to Alex beyond price — product continuity, team welfare, his own role post-acquisition.",
+          "tags": ["information", "collaborative"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": -5,
+            "relationship": 10,
+            "clientSatisfaction": 0
+          },
+          "nextNodeId": "r2-nonprice",
+          "feedback": "Deferring price to explore interests is a hallmark of integrative bargaining. By understanding what Alex truly values — product legacy, team stability, personal role — you can craft a package where non-monetary terms substitute for dollars. This is especially powerful in acqui-hires where the founder's emotional investment is high."
+        }
+      ]
+    },
+
+    "r2-anchor-low": {
+      "id": "r2-anchor-low",
+      "round": 2,
+      "speakerName": "Alex Chen",
+      "narration": "Alex's expression hardens. \"$2.8 million? That's what you'd spend poaching my people one by one. You're not valuing the team, the IP, or the fact that we're a functioning unit. DataForge is offering nearly double that. I need to see something serious or we're done here.\"",
+      "options": [
+        {
+          "id": "r2a-concede-some",
+          "label": "Move to $3.5M with rationale",
+          "description": "Acknowledge his concern and move to $3.5M, explaining the step up reflects the value of keeping the team intact and acquiring the IP portfolio. Frame it as a meaningful move.",
+          "tags": ["compromising", "concession"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": -5,
+            "relationship": 10,
+            "clientSatisfaction": 0
+          },
+          "nextNodeId": "r3-engineer-crisis",
+          "feedback": "Making a calculated concession with a clear rationale is called principled concession-making. You moved $700K but explained why, which signals flexibility without weakness. The key insight: never concede without getting something in return or at least establishing a reason that limits future asks."
+        },
+        {
+          "id": "r2a-hold-firm",
+          "label": "Hold at $2.8M, question DataForge",
+          "description": "Stand firm and probe the competing offer. Point out that DataForge requires relocation and ask whether his team would actually follow him to Austin.",
+          "tags": ["competitive", "information"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": 10,
+            "relationship": -10,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r3-engineer-crisis",
+          "feedback": "Challenging the competing offer's credibility is a legitimate tactic when you have intelligence to back it up. You know the relocation issue weakens DataForge's position. However, calling someone's BATNA into question can feel personal — Alex may dig in harder to prove the alternative is real. Use this sparingly."
+        },
+        {
+          "id": "r2a-pivot-structure",
+          "label": "Propose earn-out structure",
+          "description": "Keep the base at $2.8M but propose an additional $1.5M in milestone-based earn-outs tied to team retention and product integration metrics over 18 months.",
+          "tags": ["creative", "analytical"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": 0,
+            "relationship": 5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r3-engineer-crisis",
+          "feedback": "Earn-out structures are a powerful tool when buyer and seller disagree on value. By shifting $1.5M into contingent payments, you protect the client if things go wrong while giving Alex a path to a higher total payout. This is classic risk-sharing: you're not saying no, you're saying 'prove it.' Smart acqui-hire structuring."
+        }
+      ]
+    },
+
+    "r2-close-offer": {
+      "id": "r2-close-offer",
+      "round": 2,
+      "speakerName": "Alex Chen",
+      "narration": "Alex nods slowly. \"$4.2 million is in the neighborhood. But full IP assignment is a big ask — we have a pending patent that's core to our identity. And 18 months is a long time to lock people into retention. I'd want to see meaningful retention bonuses, not just handcuffs. Let's talk specifics.\"",
+      "options": [
+        {
+          "id": "r2b-ip-hardline",
+          "label": "Insist on full IP, including patent",
+          "description": "Explain that the pending patent is precisely why the deal has value. Without it, BuyerCo would be acquiring a team that could rebuild competing technology. The IP must be included.",
+          "tags": ["competitive", "analytical"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": -10,
+            "relationship": -5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r3-engineer-crisis",
+          "feedback": "Taking a firm position on the patent is sound legal counsel. The patent application is the key IP asset — without it, the acqui-hire leaves BuyerCo exposed to future competition from the very technology it paid to acquire. In M&A, identifying the non-negotiable terms early prevents late-stage deal collapse."
+        },
+        {
+          "id": "r2b-retention-focus",
+          "label": "Offer structured retention bonuses",
+          "description": "Propose a retention bonus pool of $600K split across key engineers, vesting quarterly over 18 months, separate from the purchase price. Frame it as showing BuyerCo values the people, not just the code.",
+          "tags": ["collaborative", "creative"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": -5,
+            "relationship": 10,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r3-retention-focus",
+          "feedback": "Separating retention bonuses from the purchase price is logrolling — you're creating additional value rather than splitting a fixed pie. Quarterly vesting instead of a cliff is more attractive to employees and shows sophistication. Alex can present this to his team as proof that BuyerCo genuinely cares about them."
+        },
+        {
+          "id": "r2b-package-bundle",
+          "label": "Bundle price, IP, and retention together",
+          "description": "Propose discussing all three terms as a package rather than sequentially. Suggest that concessions on retention structure could offset a firm stance on IP, and vice versa.",
+          "tags": ["logrolling", "collaborative"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": -5,
+            "relationship": 5,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r3-retention-focus",
+          "feedback": "Bundling multiple issues together is textbook integrative negotiation. When terms are discussed in isolation, every issue becomes a zero-sum battle. When bundled, you can trade across issues — give on retention structure to get on IP, give on title to get on price. This approach almost always produces better outcomes for both sides."
+        }
+      ]
+    },
+
+    "r2-nonprice": {
+      "id": "r2-nonprice",
+      "round": 2,
+      "speakerName": "Alex Chen",
+      "narration": "Alex pauses, visibly surprised that you didn't counter immediately. \"Honestly? The money matters, but what keeps me up at night is the product being shelved. We turned down $6 million last year because the buyer would have killed NovaMind's core platform. And my engineers — three of them have kids in local schools. I promised them stability.\"",
+      "options": [
+        {
+          "id": "r2c-product-promise",
+          "label": "Propose a product continuity clause",
+          "description": "Suggest a contractual commitment that BuyerCo will maintain and develop the NovaMind platform for at least 24 months, with Alex having an advisory role on product direction.",
+          "tags": ["creative", "collaborative"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": 5,
+            "relationship": 15,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r3-retention-focus",
+          "feedback": "You found Alex's deepest interest — product legacy — and offered something that costs BuyerCo relatively little but is enormously valuable to him. Product continuity clauses are common in acqui-hires where founders care about their creation. The risk is that it constrains BuyerCo's flexibility, but at difficulty level 1, this is a strong creative play."
+        },
+        {
+          "id": "r2c-local-guarantee",
+          "label": "Guarantee no relocation for 24 months",
+          "description": "Offer a written guarantee that the team stays local for at least two years, directly contrasting with DataForge's Austin relocation requirement.",
+          "tags": ["competitive", "information"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": 0,
+            "relationship": 10,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r3-retention-focus",
+          "feedback": "You leveraged your intel about DataForge's relocation requirement without being heavy-handed. By offering something Alex's alternative cannot match, you've weakened his BATNA without attacking it directly. This is information advantage used constructively — the best kind of competitive move."
+        },
+        {
+          "id": "r2c-now-price",
+          "label": "Pivot to price at $3.6M",
+          "description": "Now that Alex has revealed his core interests, use that information to anchor a lower price. Propose $3.6M, arguing that the non-monetary protections you've discussed add substantial value beyond the dollar figure.",
+          "tags": ["anchoring", "analytical"],
+          "meterEffects": {
+            "dealValue": 10,
+            "riskExposure": 5,
+            "relationship": -5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r3-engineer-crisis",
+          "feedback": "You gathered information about Alex's interests and then used it to justify a lower price anchor. This is effective but carries a relational risk — Alex may feel you drew out his vulnerabilities only to exploit them. The anchoring itself is sound, but the sequencing matters. In future rounds, consider pairing the lower number with concrete non-price commitments."
+        }
+      ]
+    },
+
+    "r3-engineer-crisis": {
+      "id": "r3-engineer-crisis",
+      "round": 3,
+      "speakerName": "Alex Chen",
+      "narration": "Alex takes a call and returns looking shaken. \"I need to be transparent. Two of my senior engineers just told me they've received direct offers from a FAANG company. They'll leave if this deal doesn't close in two weeks with clear retention terms. If I lose them, this whole deal changes — for both of us.\"",
+      "options": [
+        {
+          "id": "r3a-exploit-urgency",
+          "label": "Use the leverage to push price down",
+          "description": "Point out that the departing engineers reduce NovaMind's value and press for a lower price, arguing the risk now justifies a discount.",
+          "tags": ["competitive", "aggressive"],
+          "meterEffects": {
+            "dealValue": 15,
+            "riskExposure": 10,
+            "relationship": -20,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r4-package-hardball",
+          "feedback": "Using new information to extract concessions is hardball negotiation. It's effective in the short term — you captured real value — but the relationship damage is severe. Alex shared vulnerably and you weaponized it. In ongoing relationships (and acqui-hires are inherently ongoing), this often backfires during integration when you need the founder's cooperation."
+        },
+        {
+          "id": "r3a-solve-together",
+          "label": "Propose a joint fast-track plan",
+          "description": "Suggest an accelerated timeline: draft term sheet by end of week, with immediate interim retention offers to the two engineers funded by BuyerCo as a good-faith deposit against the purchase price.",
+          "tags": ["collaborative", "creative"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": -10,
+            "relationship": 15,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r4-package-creative",
+          "feedback": "You treated Alex's problem as a shared problem, which is the foundation of collaborative negotiation. The interim retention offers are clever — they lock in the engineers immediately while being credited against the final price, so BuyerCo's total cost doesn't increase. This builds enormous trust and creates momentum toward closing."
+        },
+        {
+          "id": "r3a-cautious-probe",
+          "label": "Ask questions before reacting",
+          "description": "Before committing to anything, ask which engineers received offers, what the offers look like, and whether Alex has spoken to the rest of the team about their intentions.",
+          "tags": ["analytical", "cautious"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": -5,
+            "relationship": 0,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r4-package-creative",
+          "feedback": "Gathering information before reacting to a crisis is disciplined negotiation. Panic concessions are costly, and not every crisis is what it appears. By asking targeted questions, you might discover the FAANG offers are for different roles, or that the engineers are using them as leverage on Alex. Always verify before you adjust your position."
+        }
+      ]
+    },
+
+    "r3-retention-focus": {
+      "id": "r3-retention-focus",
+      "round": 3,
+      "speakerName": "Alex Chen",
+      "narration": "Alex pulls out a spreadsheet. \"Let me show you something. My three senior ML engineers — they're the ones making this acquisition worth doing. Two of them have been approached by competitors. I haven't told them about this deal yet, and I need retention terms I can actually sell them before I do.\"",
+      "options": [
+        {
+          "id": "r3b-generous-retention",
+          "label": "Offer above-market retention packages",
+          "description": "Propose retention bonuses of $150K per senior engineer, vesting quarterly over 18 months, plus title upgrades and guaranteed project leadership roles within BuyerCo.",
+          "tags": ["collaborative", "concession"],
+          "meterEffects": {
+            "dealValue": -10,
+            "riskExposure": -10,
+            "relationship": 10,
+            "clientSatisfaction": 0
+          },
+          "nextNodeId": "r4-package-creative",
+          "feedback": "Generous retention terms reduce the biggest risk in any acqui-hire: key people walking. The quarterly vesting is more attractive than a cliff and costs the same. Title upgrades and project ownership cost nothing but signal commitment. You're investing in the asset you're actually buying — the people."
+        },
+        {
+          "id": "r3b-standard-terms",
+          "label": "Offer standard retention with accelerators",
+          "description": "Propose BuyerCo's standard 24-month retention package but add acceleration triggers: if the team hits integration milestones early, vesting accelerates by up to 6 months.",
+          "tags": ["analytical", "compromising"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": -5,
+            "relationship": 0,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r4-package-hardball",
+          "feedback": "Using the standard package as a baseline keeps your client's HR team happy and sets a precedent that won't create problems with other hires. The acceleration triggers are a smart add — they align incentives by rewarding performance rather than just presence. This is a solid middle-ground approach that protects the client while offering real upside."
+        },
+        {
+          "id": "r3b-contingent-pool",
+          "label": "Create a discretionary bonus pool",
+          "description": "Instead of individual guarantees, propose a $400K discretionary bonus pool that Alex can allocate among team members as he sees fit, vesting over 18 months.",
+          "tags": ["creative", "logrolling"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": 0,
+            "relationship": 15,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r4-package-creative",
+          "feedback": "Giving Alex discretion over the bonus pool is a power move disguised as generosity. It lets him be the hero to his team, which deepens his investment in making the deal work. It also lets him allocate based on insider knowledge of who needs what to stay. The total cost is controlled while the perceived value is high. This is sophisticated logrolling."
+        }
+      ]
+    },
+
+    "r4-package-hardball": {
+      "id": "r4-package-hardball",
+      "round": 4,
+      "speakerName": "Alex Chen",
+      "narration": "The negotiation has grown tense. Alex crosses his arms. \"Here's where we are. I need a number I can live with, IP terms that don't feel like a strip-mining operation, and retention packages my people won't laugh at. You've been tough on price — fine. But I won't sign something that disrespects my team or kills the product.\"",
+      "options": [
+        {
+          "id": "r4a-split-difference",
+          "label": "Propose splitting the gap on price",
+          "description": "Identify the remaining price gap and propose meeting in the middle, packaging it with the IP and retention terms already discussed. Frame it as a fair resolution that respects both sides.",
+          "tags": ["compromising", "concession"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": -5,
+            "relationship": 10,
+            "clientSatisfaction": 0
+          },
+          "nextNodeId": "r5-final-competitive",
+          "feedback": "Splitting the difference feels fair but can leave value on the table. In this context, it works because the relationship needs repair after earlier hardball tactics. The packaging is key — by bundling the price concession with IP and retention terms you've already shaped, you're not just splitting a number, you're closing a complete deal."
+        },
+        {
+          "id": "r4a-final-package",
+          "label": "Present a take-it-or-leave-it package",
+          "description": "Lay out a comprehensive final offer: $3.8M with full IP assignment, 18-month retention with quarterly vesting, product advisory role for Alex, and a two-week signing deadline.",
+          "tags": ["competitive", "anchoring"],
+          "meterEffects": {
+            "dealValue": 10,
+            "riskExposure": 5,
+            "relationship": -10,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r5-final-competitive",
+          "feedback": "The exploding offer is a high-risk, high-reward tactic. By packaging everything into a single take-it-or-leave-it, you eliminate further concession-seeking. The deadline creates urgency. However, if Alex has real alternatives, this can blow up the deal entirely. Use this when you believe the other side's BATNA is weaker than they claim."
+        },
+        {
+          "id": "r4a-tradeoff-menu",
+          "label": "Offer a menu of trade-offs",
+          "description": "Present two alternative packages: Package A is $3.6M with full IP and generous retention; Package B is $4.2M with IP licensing back to Alex for non-competing uses and standard retention. Let Alex choose.",
+          "tags": ["creative", "logrolling"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": 0,
+            "relationship": 5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r5-final-collaborative",
+          "feedback": "Offering structured alternatives is an advanced technique called 'multiple equivalent simultaneous offers' (MESOs). It gives Alex a sense of agency while ensuring both options work for your client. His choice also reveals his priorities — if he picks Package B, you know IP licensing matters more than total price. Every option you present should be one you can live with."
+        }
+      ]
+    },
+
+    "r4-package-creative": {
+      "id": "r4-package-creative",
+      "round": 4,
+      "speakerName": "Alex Chen",
+      "narration": "Alex relaxes slightly. \"I appreciate how you've handled the engineer situation. That tells me BuyerCo is serious about people, not just assets. Let's see if we can put the whole package together. I'm willing to move on price if the rest of the terms protect my team and give the product a real future.\"",
+      "options": [
+        {
+          "id": "r4b-lock-ip-first",
+          "label": "Secure IP assignment while goodwill is high",
+          "description": "Use the positive momentum to close the IP question first. Propose full IP assignment including the pending patent, with a license-back for Alex to publish academic papers based on the research.",
+          "tags": ["analytical", "collaborative"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": -15,
+            "relationship": 5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r5-final-collaborative",
+          "feedback": "Closing the hardest term while momentum is positive is excellent sequencing. The academic license-back costs BuyerCo almost nothing but gives Alex something personally meaningful. In M&A negotiations, the order in which you resolve issues matters as much as the substance. Lock down the critical terms when the atmosphere supports it."
+        },
+        {
+          "id": "r4b-comprehensive-draft",
+          "label": "Draft a full term sheet together",
+          "description": "Suggest sitting down together to draft a term sheet in real time, covering price, IP, retention, product commitments, and Alex's role. Make it a collaborative document.",
+          "tags": ["collaborative", "logrolling"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": -10,
+            "relationship": 10,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "r5-final-collaborative",
+          "feedback": "Co-drafting a term sheet transforms the negotiation from adversarial to joint problem-solving. When both sides are literally building the document together, the psychology shifts — objections become edits rather than rejections. This approach is slower but produces deals that stick because both sides feel ownership over every term."
+        },
+        {
+          "id": "r4b-push-price-now",
+          "label": "Lock in a lower price while he's flexible",
+          "description": "Alex said he's willing to move on price. Take the opening: propose $3.5M as the headline number, noting that the retention bonuses and product commitments add substantial total value beyond that figure.",
+          "tags": ["competitive", "anchoring"],
+          "meterEffects": {
+            "dealValue": 10,
+            "riskExposure": 5,
+            "relationship": -5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "r5-final-competitive",
+          "feedback": "When the other side signals flexibility, seizing it quickly is smart negotiation — but there's a fine line between efficient and opportunistic. Reframing the total package value (price + retention + commitments) is a legitimate way to justify the lower headline number. Just be aware that Alex may feel his goodwill was taken advantage of."
+        }
+      ]
+    },
+
+    "r5-final-competitive": {
+      "id": "r5-final-competitive",
+      "round": 5,
+      "speakerName": "Alex Chen",
+      "narration": "Alex looks at his phone, then back at you. \"DataForge just moved their deadline up. I need to give them an answer by Friday. I want to do this deal with BuyerCo, but I can't leave money on the table when my team is counting on me. Where can you move on the final number?\"",
+      "options": [
+        {
+          "id": "r5a-nibble-up",
+          "label": "Add a small sweetener to close",
+          "description": "Hold the price firm but add a $75K signing bonus for Alex personally and a commitment to fund one conference trip per engineer annually. Small costs that signal respect.",
+          "tags": ["creative", "compromising"],
+          "meterEffects": {
+            "dealValue": -5,
+            "riskExposure": 0,
+            "relationship": 10,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "terminal-decent-deal",
+          "feedback": "The 'nibble' is a classic closing technique — adding small, low-cost items at the end that make the deal feel complete. Alex's signing bonus is a rounding error on a multi-million dollar deal but it's personally meaningful. Conference funding shows investment in the team's growth. These finishing touches often make the difference between a signed deal and a stalled one."
+        },
+        {
+          "id": "r5a-call-bluff",
+          "label": "Call the deadline bluff",
+          "description": "Express skepticism about the DataForge deadline. Remind Alex that their offer requires relocation his team opposes. State that your offer is fair and you're confident he'll come back to the table even if he takes a few days.",
+          "tags": ["competitive", "aggressive"],
+          "meterEffects": {
+            "dealValue": 10,
+            "riskExposure": 15,
+            "relationship": -15,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "terminal-walkaway",
+          "feedback": "Calling a bluff can work brilliantly or catastrophically. You're betting that Alex's BATNA is weaker than he claims. The intel supports you — DataForge's relocation requirement is a real problem. But if you're wrong, or if Alex feels cornered and chooses pride over economics, you lose the deal entirely. High risk, high reward."
+        },
+        {
+          "id": "r5a-bridge-creative",
+          "label": "Propose a performance earn-out bridge",
+          "description": "Keep the base price where it is but add a $500K earn-out tied to 12-month team retention milestones. If the team stays, Alex gets the upside. Frame it as confidence in the team he built.",
+          "tags": ["creative", "analytical"],
+          "meterEffects": {
+            "dealValue": 0,
+            "riskExposure": -5,
+            "relationship": 5,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "terminal-strong-deal",
+          "feedback": "The earn-out bridge is the perfect closing mechanism for an acqui-hire. It aligns Alex's payout with the exact outcome BuyerCo cares about — team retention. If the team stays, Alex earns more and BuyerCo got what it paid for. If they don't, BuyerCo's downside is capped. This is value creation, not value claiming."
+        }
+      ]
+    },
+
+    "r5-final-collaborative": {
+      "id": "r5-final-collaborative",
+      "round": 5,
+      "speakerName": "Alex Chen",
+      "narration": "Alex pulls out his notes. \"I think we're close. The IP terms work for me, especially the academic license-back. The retention packages are solid. My team would stay for this. Let me be honest — I can come down to $4.3 million if the rest of this package holds. That's my real number. Can BuyerCo get there?\"",
+      "options": [
+        {
+          "id": "r5b-accept-with-tweak",
+          "label": "Accept at $4.2M with a small adjustment",
+          "description": "Counter at $4.2M — just $100K below his ask — but add a 30-day accelerated closing timeline and one final term: the pending patent assignment must be completed before the first retention payment.",
+          "tags": ["analytical", "compromising"],
+          "meterEffects": {
+            "dealValue": 5,
+            "riskExposure": -10,
+            "relationship": 5,
+            "clientSatisfaction": 5
+          },
+          "nextNodeId": "terminal-strong-deal",
+          "feedback": "Countering $100K below on a $4.3M ask is a respectful final move that protects your negotiating credibility without jeopardizing the deal. The patent assignment condition is smart — tying IP transfer to retention payments creates a natural enforcement mechanism. Both sides feel they shaped the final terms. This is how professional deals close."
+        },
+        {
+          "id": "r5b-push-for-4m",
+          "label": "Push for an even $4M",
+          "description": "Argue that $4M is a clean, board-friendly number that avoids the need for additional approvals. Emphasize the non-price value already built into the package — retention bonuses, product continuity, and the advisory role.",
+          "tags": ["anchoring", "competitive"],
+          "meterEffects": {
+            "dealValue": 10,
+            "riskExposure": 10,
+            "relationship": -15,
+            "clientSatisfaction": 10
+          },
+          "nextNodeId": "terminal-weak-deal",
+          "feedback": "Pushing for a round number after building a collaborative rapport can feel like a bait-and-switch. Alex revealed his real number as a gesture of trust, and countering $300K below signals that his transparency was used against him. The process constraint ('board-friendly') is a known tactic and Alex sees through it. He signs, but the goodwill you built evaporates."
+        },
+        {
+          "id": "r5b-accept-full",
+          "label": "Accept $4.3M and close the deal",
+          "description": "Accept Alex's number to preserve the strong relationship and close quickly. The $4.3M is within the board-approved ceiling and the overall package protects BuyerCo's interests on IP and retention.",
+          "tags": ["collaborative", "concession"],
+          "meterEffects": {
+            "dealValue": -10,
+            "riskExposure": -15,
+            "relationship": 15,
+            "clientSatisfaction": -5
+          },
+          "nextNodeId": "terminal-decent-deal",
+          "feedback": "Accepting the ask preserves maximum goodwill, which matters enormously in acqui-hires where the founder's post-deal cooperation is essential. You're paying a premium for relationship capital. The trade-off: your client may question whether you could have done better on price. Sometimes the best deal is the one that actually closes with everyone motivated to make it work."
+        }
+      ]
+    },
+
+    "terminal-strong-deal": {
+      "id": "terminal-strong-deal",
+      "round": 6,
+      "narration": "Alex extends his hand across the table with a genuine smile.",
+      "isTerminal": true,
+      "outcomeNarrative": "The deal closes at a price within BuyerCo's target range with full IP assignment, including the pending patent. The retention packages are competitive enough that all twelve team members sign on, and Alex takes the product advisory role with real enthusiasm. Three months later, BuyerCo's CTO tells you it was the smoothest integration she's ever seen. Your client got the talent, the technology, and a founder who's actively championing the acquisition internally.",
+      "options": []
+    },
+
+    "terminal-decent-deal": {
+      "id": "terminal-decent-deal",
+      "round": 6,
+      "narration": "Alex signs the term sheet, looking satisfied but not thrilled.",
+      "isTerminal": true,
+      "outcomeNarrative": "The deal closes on reasonable terms. BuyerCo acquires the IP and retains most of the engineering team, though two junior developers decline the retention packages and leave within six months. Alex fulfills his contractual obligations professionally but without the above-and-beyond effort that marks a truly successful acqui-hire. The deal works, but it doesn't sing. Your client is satisfied with the price but later wonders whether a warmer relationship with Alex could have smoothed integration.",
+      "options": []
+    },
+
+    "terminal-weak-deal": {
+      "id": "terminal-weak-deal",
+      "round": 6,
+      "narration": "Alex signs reluctantly, barely making eye contact.",
+      "isTerminal": true,
+      "outcomeNarrative": "The deal closes, but at a cost. The price is favorable for BuyerCo, but Alex's resentment is palpable. He completes his minimum contractual obligations and departs at the first opportunity. Within eight months, four of the twelve engineers follow him out the door, taking institutional knowledge that cannot be replaced. The IP assignment holds legally, but the team that understood the technology best is gone. BuyerCo's board questions whether the acquisition delivered real value.",
+      "options": []
+    },
+
+    "terminal-walkaway": {
+      "id": "terminal-walkaway",
+      "round": 6,
+      "narration": "Alex stands up, gathers his papers, and pauses at the door.",
+      "isTerminal": true,
+      "outcomeNarrative": "Alex walks away from the negotiation and signs with DataForge within the week. BuyerCo is forced to fall back on its BATNA — direct recruiting — which yields only seven of the twelve engineers over four months and no IP. The total cost exceeds what the acquisition would have been, and BuyerCo's CTO is frustrated by the delay to her product roadmap. In the post-mortem, the board asks whether a less aggressive approach might have closed the deal.",
+      "options": []
+    }
+  }
+}

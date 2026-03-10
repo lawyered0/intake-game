@@ -1,0 +1,507 @@
+{
+  "id": "commercial-lease",
+  "title": "The Commercial Lease",
+  "subtitle": "Seven years is a long time to live with a bad deal",
+  "dealType": "Lease",
+  "difficulty": 2,
+  "estimatedMinutes": 5,
+  "playerRole": "Counsel for Hartwell & Associates",
+  "counterpartyRole": "Dana Park, Senior Broker for Meridian Properties",
+  "totalRounds": 7,
+  "briefing": {
+    "situation": "Hartwell & Associates, a 14-attorney law firm, is outgrowing its current space and has identified a 12,000-square-foot suite on the 18th floor of One Meridian Tower, a Class A building downtown. The asking rent is $52 per square foot NNN, above the market rate of $44-$48. Dana Park, the landlord's senior broker, knows your client's current lease expires in 90 days and is pressing for a quick commitment.",
+    "clientGoals": [
+      "Secure base rent at or below $46/SF with predictable escalation caps",
+      "Obtain a tenant improvement allowance of at least $55/SF for build-out",
+      "Retain the right to sublease and expand into adjacent space",
+      "Avoid a personal guarantee from the named partners"
+    ],
+    "batna": "Renew the existing lease for 3 years at $40/SF in a Class B building, but with no room to grow and aging infrastructure that hurts recruiting.",
+    "constraints": [
+      "The firm must be operational in the new space within 120 days or face overlap costs on two leases",
+      "Two named partners refuse to sign personal guarantees under any circumstances",
+      "The firm's expansion plan requires access to the adjacent 4,000 SF suite within 3 years"
+    ],
+    "intelOnOtherSide": [
+      "One Meridian Tower is 78% occupied — the landlord needs tenants but is not desperate",
+      "Dana Park earns a higher commission on longer lease terms and higher base rent",
+      "The 18th floor has been vacant for 5 months, and the landlord's lender is asking questions about occupancy"
+    ]
+  },
+  "initialMeters": {
+    "dealValue": 45,
+    "riskExposure": 40,
+    "relationship": 55,
+    "clientSatisfaction": 45
+  },
+  "startNodeId": "r1-opening",
+  "nodes": {
+    "r1-opening": {
+      "id": "r1-opening",
+      "round": 1,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana slides a Letter of Intent across the table with a practiced smile. The LOI proposes $52/SF base rent with 3% annual escalations, a $40/SF tenant improvement allowance, no sublease rights without landlord consent, and a personal guarantee from all named partners. She taps the signature line and says the landlord needs an answer by Friday.",
+      "options": [
+        {
+          "id": "r1-counter-aggressive",
+          "label": "Counter at $42/SF with full redlines",
+          "description": "Reject the LOI wholesale and counter with $42/SF, $65/SF TI allowance, unrestricted sublease rights, and no personal guarantee — anchoring well below your target.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 5, "relationship": -10, "clientSatisfaction": 10 },
+          "nextNodeId": "r2-rent-hard",
+          "feedback": "Strong anchor. You've set the floor low, which gives you room to move. But Dana's body language suggests she may dig in defensively. Anchoring works best when paired with a credible rationale.",
+          "tags": ["anchoring", "aggressive", "competitive"]
+        },
+        {
+          "id": "r1-counter-moderate",
+          "label": "Propose a collaborative markup",
+          "description": "Accept the LOI as a starting framework but mark up the rent to $46/SF, request $55/SF TI allowance, and flag the personal guarantee and sublease restrictions as items needing discussion.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 10, "clientSatisfaction": 5 },
+          "nextNodeId": "r2-rent-moderate",
+          "feedback": "A measured opening. You've signaled willingness to deal while identifying your key concerns. This keeps Dana engaged and sets up productive horse-trading on the terms that matter most.",
+          "tags": ["collaborative", "analytical"]
+        },
+        {
+          "id": "r1-ask-questions",
+          "label": "Probe before responding",
+          "description": "Before countering, ask Dana about the building's occupancy, comparable rents in the building, the landlord's flexibility on term length, and whether other prospects are considering this floor.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -10, "relationship": 5, "clientSatisfaction": 0 },
+          "nextNodeId": "r2-rent-explore",
+          "feedback": "Information is leverage. Dana revealed more than she intended — the floor has been vacant five months, and the landlord's lender is applying pressure. This intel will serve you well in rent negotiations.",
+          "tags": ["information", "analytical", "cautious"]
+        }
+      ]
+    },
+
+    "r2-rent-hard": {
+      "id": "r2-rent-hard",
+      "round": 2,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana pushes back hard. She says $42 is insulting for a Class A building and that her client won't go below $50. She offers to reduce the annual escalation from 3% to 2.5% but insists the base rent reflects the building's premium amenities and location.",
+      "options": [
+        {
+          "id": "r2h-hold-firm",
+          "label": "Hold at $44/SF with escalation cap",
+          "description": "Move slightly to $44/SF but demand a 2% fixed escalation cap and three months of free rent at the start of the term to offset move-in costs.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 0, "relationship": -5, "clientSatisfaction": 10 },
+          "nextNodeId": "r3-buildout-strong",
+          "feedback": "Good move — you conceded from your anchor without reaching your target, and the free-rent request is a common tactic that effectively lowers the blended cost per square foot over the lease term.",
+          "tags": ["competitive", "anchoring"]
+        },
+        {
+          "id": "r2h-package-deal",
+          "label": "Offer a package trade",
+          "description": "Propose moving to $46/SF if the landlord agrees to a 2% escalation cap, four months free rent, and an operating expense stop to cap CAM increases.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-buildout-standard",
+          "feedback": "Classic logrolling. You gave on base rent but extracted value on escalation, free rent, and operating expenses. The operating expense stop is often overlooked but can save tens of thousands over a 7-year term.",
+          "tags": ["logrolling", "package-deal", "collaborative"]
+        },
+        {
+          "id": "r2h-concede-rent",
+          "label": "Accept $48/SF to preserve goodwill",
+          "description": "Agree to $48/SF with 2.5% escalations to bank goodwill for tougher fights on TI allowance, sublease rights, and the personal guarantee.",
+          "meterEffects": { "dealValue": -10, "riskExposure": -5, "relationship": 10, "clientSatisfaction": -5 },
+          "nextNodeId": "r3-buildout-standard",
+          "feedback": "You conceded too much too early on rent. While preserving the relationship has value, base rent is the single largest cost over a 7-year lease. A $2/SF difference costs your client $168,000 over the term.",
+          "tags": ["concession", "compromising"]
+        }
+      ]
+    },
+
+    "r2-rent-moderate": {
+      "id": "r2-rent-moderate",
+      "round": 2,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana acknowledges your markup and says the landlord appreciates the professional approach. She counters at $49/SF with 2.5% escalations and hints that there might be room on the TI allowance if the rent number works. She asks whether your client is flexible on term length.",
+      "options": [
+        {
+          "id": "r2m-push-lower",
+          "label": "Push rent to $45/SF with longer term",
+          "description": "Counter at $45/SF and offer to extend the lease to 8 years instead of 7, giving the landlord more revenue certainty in exchange for a lower annual rate.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-buildout-strong",
+          "feedback": "Smart trade. Landlords love term length because it reduces vacancy risk and satisfies their lenders. An extra year of committed rent is worth more to the landlord than the per-square-foot difference costs you.",
+          "tags": ["creative", "logrolling", "collaborative"]
+        },
+        {
+          "id": "r2m-split-difference",
+          "label": "Split the difference at $47/SF",
+          "description": "Propose $47/SF with a 2% escalation cap and two months free rent, framing it as a fair compromise that gives both sides a win.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -5, "relationship": 10, "clientSatisfaction": 0 },
+          "nextNodeId": "r3-buildout-standard",
+          "feedback": "Splitting the difference feels fair but often leaves value on the table. You landed within market range, but the escalation cap and free rent help offset the higher base. Watch that you don't split the difference again on other terms.",
+          "tags": ["compromising"]
+        },
+        {
+          "id": "r2m-cap-expenses",
+          "label": "Accept $47/SF but cap operating expenses",
+          "description": "Agree to $47/SF but insist on an operating expense stop at current-year levels, capping your exposure to rising CAM charges, insurance, and property taxes over the 7-year term.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-buildout-standard",
+          "feedback": "Shrewd move. Operating expenses in Class A buildings often escalate faster than rent. An expense stop at base-year levels protects your client from unpredictable pass-through increases that can add $3-$5/SF over a long-term lease.",
+          "tags": ["analytical", "defensive", "creative"]
+        }
+      ]
+    },
+
+    "r2-rent-explore": {
+      "id": "r2-rent-explore",
+      "round": 2,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Your questions paid off. Dana admits that comparable rents in the building range from $44 to $49 per square foot depending on the floor and tenant credit. She also lets slip that the landlord would consider a rent abatement period for the right tenant. Now she wants your counter on rent.",
+      "options": [
+        {
+          "id": "r2e-leverage-intel",
+          "label": "Use the intel to anchor at $44/SF",
+          "description": "Counter at $44/SF and cite the comps she just provided, noting that your client's strong credit and 7-year term justify the lower end of the range. Request three months free rent as the abatement she mentioned.",
+          "meterEffects": { "dealValue": 15, "riskExposure": 0, "relationship": -5, "clientSatisfaction": 10 },
+          "nextNodeId": "r3-buildout-strong",
+          "feedback": "Excellent use of information. Dana handed you the ammunition and you deployed it precisely. Citing her own comps makes it difficult for her to argue the number is unreasonable. The abatement request was well-timed.",
+          "tags": ["information", "anchoring", "competitive"]
+        },
+        {
+          "id": "r2e-balanced-counter",
+          "label": "Counter at $46/SF with a package",
+          "description": "Propose $46/SF with 2% fixed escalations, three months free rent, and an operating expense stop. Position it as a deal that works for both sides based on the market data.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-buildout-standard",
+          "feedback": "A solid, well-reasoned counter. You used the market intelligence without overplaying your hand. The package approach shows Dana you are thinking about the whole deal, not just grinding on rent.",
+          "tags": ["analytical", "package-deal", "collaborative"]
+        },
+        {
+          "id": "r2e-delay-rent",
+          "label": "Defer rent and focus on TI allowance first",
+          "description": "Suggest tabling the rent discussion and negotiating the tenant improvement allowance first, since the build-out scope will affect the overall economics of the deal.",
+          "meterEffects": { "dealValue": 0, "riskExposure": 0, "relationship": 0, "clientSatisfaction": -5 },
+          "nextNodeId": "r3-buildout-standard",
+          "feedback": "Resequencing negotiations can be strategic, but here it may have cost you momentum. Dana gave you intel that was ripe for exploitation on rent. Deferring let that advantage cool. Your client also expected you to push on rent while you had leverage.",
+          "tags": ["cautious", "defensive"]
+        }
+      ]
+    },
+
+    "r3-buildout-strong": {
+      "id": "r3-buildout-strong",
+      "round": 3,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana concedes on rent but warns that the landlord has a hard ceiling on the TI allowance. She offers $45/SF for tenant improvements — enough to cover standard office build-out but not the custom conference suite and server room your client needs. She says anything above $50/SF would require the firm to sign a longer lease.",
+      "options": [
+        {
+          "id": "r3s-push-ti",
+          "label": "Demand $60/SF TI with amortization",
+          "description": "Push for $60/SF TI allowance and offer to amortize the excess above $50/SF into the rent over the lease term, so the landlord recoups the investment.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 5, "relationship": -5, "clientSatisfaction": 10 },
+          "nextNodeId": "r4-complication",
+          "feedback": "Creative financing. Amortizing above-standard TI into rent is a common mechanism that lets landlords fund custom build-outs without eating the cost. Your client gets the space they need, and the landlord earns interest on the excess.",
+          "tags": ["creative", "analytical"]
+        },
+        {
+          "id": "r3s-accept-ti-trade",
+          "label": "Accept $50/SF TI for flexibility terms",
+          "description": "Agree to $50/SF TI allowance in exchange for the landlord granting sublease rights and removing the personal guarantee requirement from the lease.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r4-complication",
+          "feedback": "Good logrolling. You traded TI dollars — which have a finite impact — for ongoing flexibility terms that protect your client for the full 7-year term. Sublease rights alone can be worth hundreds of thousands if the firm's space needs change.",
+          "tags": ["logrolling", "collaborative", "package-deal"]
+        },
+        {
+          "id": "r3s-value-engineer",
+          "label": "Reduce build-out scope to fit $45/SF",
+          "description": "Accept the $45/SF allowance but negotiate the right to use the firm's own contractors and manage the build-out directly to stretch the budget further.",
+          "meterEffects": { "dealValue": -5, "riskExposure": -5, "relationship": 10, "clientSatisfaction": -5 },
+          "nextNodeId": "r4-complication",
+          "feedback": "Practical, but your client hired you to get the best deal, not to cut corners on their new office. Self-managing a build-out also introduces construction risk and timeline uncertainty. Sometimes saving money costs more.",
+          "tags": ["concession", "cautious"]
+        }
+      ]
+    },
+
+    "r3-buildout-standard": {
+      "id": "r3-buildout-standard",
+      "round": 3,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "The rent discussion lands in a reasonable range, and Dana turns to tenant improvements. She offers $42/SF for the build-out, citing the landlord's recent capital expenditures on lobby renovations. She notes that $42/SF is standard for the building and that other tenants accepted similar allowances.",
+      "options": [
+        {
+          "id": "r3t-push-higher",
+          "label": "Counter at $58/SF with market comps",
+          "description": "Present comparable TI allowances from competing Class A buildings showing $55-$65/SF ranges and argue that the landlord must be competitive to attract a 7-year tenant.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 0, "relationship": -5, "clientSatisfaction": 10 },
+          "nextNodeId": "r4-complication",
+          "feedback": "Well supported. Market comps are your strongest tool in TI negotiations. Landlords know that under-investing in tenant build-outs leads to shorter lease terms and higher turnover costs. The data does your arguing for you.",
+          "tags": ["analytical", "competitive", "information"]
+        },
+        {
+          "id": "r3t-split-creative",
+          "label": "Propose a two-tier TI structure",
+          "description": "Accept $42/SF for standard build-out and request an additional $15/SF as a landlord loan at below-market interest, amortized over the lease term, for the custom improvements.",
+          "meterEffects": { "dealValue": 5, "riskExposure": 5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r4-complication",
+          "feedback": "A two-tier approach is sophisticated and increasingly common. The landlord funds the custom work as a loan rather than a gift, which is easier to get approved by their lender. Your client pays slightly more but gets the space they want.",
+          "tags": ["creative", "collaborative"]
+        },
+        {
+          "id": "r3t-accept-low",
+          "label": "Accept $42/SF and move to other terms",
+          "description": "Take the $42/SF allowance without pushback and pivot to negotiating sublease rights and the personal guarantee, where you believe there is more room to maneuver.",
+          "meterEffects": { "dealValue": -10, "riskExposure": 0, "relationship": 10, "clientSatisfaction": -10 },
+          "nextNodeId": "r4-complication",
+          "feedback": "You left significant money on the table. The TI allowance is a one-time negotiation — once you accept it, you cannot revisit it. A $13/SF shortfall on 12,000 square feet means your client is paying $156,000 out of pocket for build-out.",
+          "tags": ["concession", "cautious"]
+        }
+      ]
+    },
+
+    "r4-complication": {
+      "id": "r4-complication",
+      "round": 4,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana takes a call and returns with news. Another tenant — a tech company — is now interested in the same floor and willing to sign at asking rent with minimal modifications. Dana says her client needs to know by end of week whether Hartwell is ready to commit, or the landlord may pivot to the other prospect.",
+      "options": [
+        {
+          "id": "r4-call-bluff",
+          "label": "Call her bluff",
+          "description": "Express skepticism about the competing tenant and note that the space has been vacant for five months. Tell Dana that manufactured urgency will not rush your client into unfavorable terms.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 10, "relationship": -10, "clientSatisfaction": 5 },
+          "nextNodeId": "r5-flex-strong",
+          "feedback": "Risky but potentially powerful. If the competing tenant is real, you've just antagonized Dana and her client. If it's a pressure tactic — which is common — you've demonstrated that you cannot be rushed. Your earlier intel about the vacancy supports this read.",
+          "tags": ["competitive", "aggressive"]
+        },
+        {
+          "id": "r4-accelerate-conditional",
+          "label": "Offer a conditional commitment",
+          "description": "Tell Dana you will recommend the deal to your client this week if the remaining open terms — sublease rights, expansion option, and the personal guarantee — are resolved in the next session. Frame it as mutual urgency.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r5-flex-moderate",
+          "feedback": "Well played. You acknowledged the urgency without conceding leverage. A conditional commitment creates a framework: if the landlord wants speed, they need to give on the remaining terms. This is the definition of a package deal under time pressure.",
+          "tags": ["package-deal", "collaborative", "creative"]
+        },
+        {
+          "id": "r4-concede-to-secure",
+          "label": "Lock in the deal now",
+          "description": "Agree to move forward immediately on the current terms to secure the space, deferring the sublease and expansion discussions to lease document negotiations.",
+          "meterEffects": { "dealValue": -15, "riskExposure": 15, "relationship": 10, "clientSatisfaction": -10 },
+          "nextNodeId": "r5-flex-limited",
+          "feedback": "Deadline pressure just cost your client. Agreeing to lock in without resolving sublease rights, expansion options, and the personal guarantee means you are negotiating those terms from a position of weakness — the landlord already has your commitment.",
+          "tags": ["concession", "cautious", "defensive"]
+        }
+      ]
+    },
+
+    "r5-flex-strong": {
+      "id": "r5-flex-strong",
+      "round": 5,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Your gamble paid off. Dana dropped the competing-tenant story and returned to the table with a more conciliatory tone. She says the landlord will consider sublease rights and wants to discuss the personal guarantee. But she draws the line at an expansion option, calling it unprecedented for this building.",
+      "options": [
+        {
+          "id": "r5s-full-push",
+          "label": "Push for all three flexibility terms",
+          "description": "Insist on sublease rights with reasonable landlord consent, an expansion option on the adjacent suite with first right of refusal, and complete elimination of the personal guarantee.",
+          "meterEffects": { "dealValue": 10, "riskExposure": -5, "relationship": -10, "clientSatisfaction": 15 },
+          "nextNodeId": "r6-final-strong",
+          "feedback": "You are pressing hard and it's working — but the relationship strain is showing. Dana's tone is clipped. Getting all three terms is rare; most landlords will trade one for another. Be prepared for a hard line in the final round.",
+          "tags": ["competitive", "aggressive"]
+        },
+        {
+          "id": "r5s-trade-guarantee",
+          "label": "Trade the guarantee for the expansion option",
+          "description": "Offer to provide an enhanced security deposit — six months rent instead of two — if the landlord drops the personal guarantee and grants a right of first offer on the adjacent suite.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": 5, "clientSatisfaction": 10 },
+          "nextNodeId": "r6-final-strong",
+          "feedback": "Excellent logrolling. The enhanced security deposit gives the landlord financial protection without piercing the corporate veil. The right of first offer on adjacent space protects your client's growth plan. Both sides gave something, both got something.",
+          "tags": ["logrolling", "creative", "collaborative"]
+        },
+        {
+          "id": "r5s-sublease-only",
+          "label": "Secure sublease rights and move on",
+          "description": "Focus on locking down sublease rights with consent not to be unreasonably withheld, and accept the landlord's position on the personal guarantee and expansion option to avoid further friction.",
+          "meterEffects": { "dealValue": -5, "riskExposure": 5, "relationship": 10, "clientSatisfaction": -5 },
+          "nextNodeId": "r6-final-balanced",
+          "feedback": "You got the sublease rights, but leaving the personal guarantee and expansion option unresolved is a significant gap. Your client's partners explicitly refused to sign guarantees. You may face a difficult conversation with your client.",
+          "tags": ["compromising", "concession"]
+        }
+      ]
+    },
+
+    "r5-flex-moderate": {
+      "id": "r5-flex-moderate",
+      "round": 5,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana appreciates the structured approach and brings revised terms. The landlord will grant sublease rights subject to consent not to be unreasonably withheld, and will consider a right of first offer on adjacent space. But she insists on a limited personal guarantee — two years of rent, burning off after year three of the lease.",
+      "options": [
+        {
+          "id": "r5m-negotiate-guarantee",
+          "label": "Counter with a burn-off guarantee",
+          "description": "Counter with a personal guarantee that covers one year of rent and burns off entirely after year two, arguing that the firm's track record and financials mitigate the landlord's risk.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r6-final-strong",
+          "feedback": "A burn-off guarantee is the standard compromise. One year of coverage with a two-year burn-off is tenant-favorable but defensible. You've protected the partners from long-term exposure while giving the landlord initial security.",
+          "tags": ["compromising", "analytical"]
+        },
+        {
+          "id": "r5m-reject-guarantee",
+          "label": "Reject any personal guarantee",
+          "description": "Flatly refuse any personal guarantee, citing your client's instructions, and offer a larger security deposit and a letter of credit as alternative credit enhancement.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": -10, "clientSatisfaction": 10 },
+          "nextNodeId": "r6-final-balanced",
+          "feedback": "Your client will be pleased, but Dana is visibly frustrated. A letter of credit is a legitimate alternative to a personal guarantee, but pushing this hard on a secondary term after making progress risks destabilizing the whole deal.",
+          "tags": ["competitive", "aggressive", "defensive"]
+        },
+        {
+          "id": "r5m-accept-guarantee",
+          "label": "Accept the two-year burn-off guarantee",
+          "description": "Accept the landlord's proposed personal guarantee terms to keep momentum going and focus your remaining leverage on the expansion option and early termination rights.",
+          "meterEffects": { "dealValue": -5, "riskExposure": 10, "relationship": 10, "clientSatisfaction": -15 },
+          "nextNodeId": "r6-final-balanced",
+          "feedback": "This directly contradicts your client's instructions. The named partners were explicit that they would not sign personal guarantees. Even a burn-off guarantee creates personal liability. You need to have a difficult conversation with Hartwell's managing partner.",
+          "tags": ["concession", "cautious"]
+        }
+      ]
+    },
+
+    "r5-flex-limited": {
+      "id": "r5-flex-limited",
+      "round": 5,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "With the deal already locked in, Dana has little incentive to make concessions. She offers minimal sublease rights — only to tenants the landlord pre-approves from a specific industry list — and says the personal guarantee is non-negotiable. She frames it as standard for a firm of Hartwell's size.",
+      "options": [
+        {
+          "id": "r5l-push-back",
+          "label": "Threaten to reopen deal terms",
+          "description": "Tell Dana that if the flexibility terms are this restrictive, you need to revisit the rent and TI allowance numbers, since the overall deal economics no longer work for your client.",
+          "meterEffects": { "dealValue": 5, "riskExposure": 5, "relationship": -15, "clientSatisfaction": 5 },
+          "nextNodeId": "r6-final-balanced",
+          "feedback": "Reopening settled terms is a high-risk move that can collapse a deal. Dana sees it as bad faith. However, it does signal that your client won't accept a one-sided package. The question is whether Dana calls your bluff.",
+          "tags": ["aggressive", "competitive"]
+        },
+        {
+          "id": "r5l-find-middle",
+          "label": "Negotiate guardrails on the restrictions",
+          "description": "Accept the general framework but negotiate specific protections: sublease consent must be provided within 30 days, the personal guarantee burns off after 18 months, and add a co-tenancy clause tied to building occupancy.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 0 },
+          "nextNodeId": "r6-final-balanced",
+          "feedback": "You're making the best of a weak position. The 30-day consent window and co-tenancy clause add real protections. A co-tenancy clause ensures your client can renegotiate if the building's occupancy drops below a threshold — smart insurance.",
+          "tags": ["analytical", "creative", "defensive"]
+        },
+        {
+          "id": "r5l-accept-all",
+          "label": "Accept all restrictions as proposed",
+          "description": "Agree to the landlord's terms on sublease and personal guarantee to close the deal and avoid further delay, since the firm's current lease expires soon.",
+          "meterEffects": { "dealValue": -10, "riskExposure": 15, "relationship": 5, "clientSatisfaction": -15 },
+          "nextNodeId": "r6-final-balanced",
+          "feedback": "Your client is now locked into a lease with minimal flexibility, a personal guarantee the partners did not want, and no sublease exit strategy. The deadline pressure that Dana created — real or manufactured — cost your client significant long-term value.",
+          "tags": ["concession", "cautious"]
+        }
+      ]
+    },
+
+    "r6-final-strong": {
+      "id": "r6-final-strong",
+      "round": 6,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana presents the final lease summary. The terms are largely favorable, but she's inserted an early termination penalty of 12 months unamortized rent plus forfeiture of all remaining TI allowance. She says this is non-negotiable and that the landlord has already made significant concessions.",
+      "options": [
+        {
+          "id": "r6s-negotiate-termination",
+          "label": "Reduce the termination penalty",
+          "description": "Counter with a 6-month early termination penalty available after year four, with the TI allowance clawback prorated based on remaining term. Argue this is standard market practice for long-term leases.",
+          "meterEffects": { "dealValue": 10, "riskExposure": -10, "relationship": 0, "clientSatisfaction": 10 },
+          "nextNodeId": "terminal-great-lease",
+          "feedback": "Strong close. A prorated TI clawback with a reduced penalty is fair and market-standard. Your client now has a genuine exit option if the firm's needs change after year four, while the landlord retains meaningful protection against early departure.",
+          "tags": ["analytical", "competitive", "package-deal"]
+        },
+        {
+          "id": "r6s-accept-penalty",
+          "label": "Accept the penalty for the overall deal",
+          "description": "Agree to the 12-month early termination penalty, recognizing that the overall lease package — favorable rent, strong TI allowance, and good flexibility terms — is the best deal available.",
+          "meterEffects": { "dealValue": -5, "riskExposure": 5, "relationship": 10, "clientSatisfaction": 0 },
+          "nextNodeId": "terminal-fair-lease",
+          "feedback": "The deal is good on balance, but the early termination penalty is punitive. Twelve months of rent plus full TI forfeiture effectively traps your client for the entire term. In a 7-year lease, a lot can change.",
+          "tags": ["compromising", "concession"]
+        },
+        {
+          "id": "r6s-walk-away",
+          "label": "Walk away from the deal",
+          "description": "Tell Dana the early termination penalty is a deal-breaker and that your client will exercise their BATNA — renewing the existing lease while exploring other Class A options on the market.",
+          "meterEffects": { "dealValue": -20, "riskExposure": -15, "relationship": -20, "clientSatisfaction": -10 },
+          "nextNodeId": "terminal-walkaway",
+          "feedback": "Walking away is always an option, but here it may be an overreaction. You had a strong deal on most terms. The early termination penalty was the last open issue and had room for compromise. Know when to close.",
+          "tags": ["aggressive", "competitive"]
+        }
+      ]
+    },
+
+    "r6-final-balanced": {
+      "id": "r6-final-balanced",
+      "round": 6,
+      "speakerName": "Dana Park, Meridian Properties",
+      "narration": "Dana lays out the complete lease package. The terms are mixed — some wins and some concessions. She says the landlord is ready to sign but has added a co-tenancy clause that gives the landlord the right to relocate your client to a comparable suite if a larger tenant wants the floor. She presents it as standard language.",
+      "options": [
+        {
+          "id": "r6b-reject-relocation",
+          "label": "Delete the relocation clause entirely",
+          "description": "Refuse the relocation clause outright and demand that your client's suite assignment is fixed for the full lease term. Note that a law firm cannot operate during a forced move and that the disruption cost would be enormous.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": -5, "clientSatisfaction": 10 },
+          "nextNodeId": "terminal-fair-lease",
+          "feedback": "Correct instinct. Relocation clauses are devastating for law firms, which invest heavily in build-out and cannot afford mid-lease disruption. This clause was likely inserted as a last-minute grab. You were right to kill it.",
+          "tags": ["competitive", "defensive"]
+        },
+        {
+          "id": "r6b-negotiate-relocation",
+          "label": "Limit the relocation clause with protections",
+          "description": "Accept the relocation concept but add strict conditions: relocation only to a comparable or better suite, landlord pays all moving and rebuild costs, 180-day advance notice, and a rent abatement during the transition period.",
+          "meterEffects": { "dealValue": 0, "riskExposure": 0, "relationship": 5, "clientSatisfaction": 0 },
+          "nextNodeId": "terminal-costly-lease",
+          "feedback": "Guardrails help, but accepting any relocation clause in a 7-year lease is risky for a law firm. Even with protections, a forced move disrupts client relationships, staff routines, and the firm's brand presence. Sometimes the right answer is simply no.",
+          "tags": ["compromising", "analytical"]
+        },
+        {
+          "id": "r6b-accept-and-close",
+          "label": "Accept all terms and close the deal",
+          "description": "Sign off on the lease as presented, including the relocation clause, to secure the space before the deadline and avoid further negotiation fatigue.",
+          "meterEffects": { "dealValue": -10, "riskExposure": 15, "relationship": 5, "clientSatisfaction": -15 },
+          "nextNodeId": "terminal-costly-lease",
+          "feedback": "Negotiation fatigue is real, but it should never drive a decision on a 7-year commitment. The relocation clause alone could force your client to move mid-lease at the landlord's convenience. This is a clause that litigators would call unconscionable.",
+          "tags": ["concession", "cautious"]
+        }
+      ]
+    },
+
+    "terminal-great-lease": {
+      "id": "terminal-great-lease",
+      "round": 7,
+      "narration": "The lease is signed.",
+      "isTerminal": true,
+      "outcomeNarrative": "Hartwell & Associates signs a 7-year lease at One Meridian Tower with below-market rent, a strong TI allowance, and meaningful flexibility terms including sublease rights and a manageable early termination option. The named partners are not exposed to personal guarantees, and the firm has a right of first offer on adjacent space for future growth. Dana Park acknowledges privately that your client got the best deal on the floor. The managing partner calls it the best lease the firm has ever signed.",
+      "options": []
+    },
+
+    "terminal-fair-lease": {
+      "id": "terminal-fair-lease",
+      "round": 7,
+      "narration": "The lease is signed.",
+      "isTerminal": true,
+      "outcomeNarrative": "Hartwell & Associates moves into One Meridian Tower on reasonable terms. The rent is within market range and the TI allowance covers most of the build-out, though some custom work comes out of the firm's pocket. The lease has some flexibility provisions but the early termination penalty is steep, effectively committing the firm for the full term. The partners are satisfied but note that the deal has less upside than they hoped. It is a workable lease, not a great one.",
+      "options": []
+    },
+
+    "terminal-costly-lease": {
+      "id": "terminal-costly-lease",
+      "round": 7,
+      "narration": "The lease is signed.",
+      "isTerminal": true,
+      "outcomeNarrative": "Hartwell & Associates moves into One Meridian Tower, but the lease terms will haunt the firm for years. The rent is above market, the TI allowance leaves the firm covering significant build-out costs out of pocket, and the flexibility terms heavily favor the landlord. Worse, the relocation clause means the landlord could force the firm to move mid-lease. Within 18 months, the managing partner starts asking whether they should have walked away. By year three, the partners are quietly exploring an early exit — and discovering how punitive the termination clause really is.",
+      "options": []
+    },
+
+    "terminal-walkaway": {
+      "id": "terminal-walkaway",
+      "round": 7,
+      "narration": "The deal collapses.",
+      "isTerminal": true,
+      "outcomeNarrative": "Hartwell & Associates walks away from One Meridian Tower. The firm renews its existing lease in the Class B building for three years at $40 per square foot — cheaper, but with aging infrastructure, no room to grow, and a location that makes recruiting harder. Two lateral partner candidates cite the office as a factor in choosing rival firms. Dana Park fills the 18th floor suite within four months with a tech company at $47 per square foot. The managing partner wonders what might have been.",
+      "options": []
+    }
+  }
+}

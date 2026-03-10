@@ -1,0 +1,437 @@
+{
+  "id": "settlement-conference",
+  "title": "The Settlement Conference",
+  "subtitle": "Six weeks to trial and the meter is running",
+  "dealType": "Settlement",
+  "difficulty": 3,
+  "estimatedMinutes": 6,
+  "playerRole": "Defense counsel for Praxis Industries",
+  "counterpartyRole": "Marcus Webb, Plaintiff's Attorney",
+  "totalRounds": 8,
+  "briefing": {
+    "situation": "Your client, Praxis Industries, is defending a wrongful termination lawsuit filed by former VP of Sales Derek Haines. Plaintiff's counsel Marcus Webb is demanding $2.4M and has a reputation for scorched-earth litigation. Trial is six weeks away, and the judge has ordered both sides to a mandatory settlement conference with a retired judge acting as mediator.",
+    "clientGoals": [
+      "Settle below $750K if possible — the board views anything above $1M as a failure",
+      "Obtain a mutual NDA and non-disparagement agreement to protect the company's reputation",
+      "Avoid any admission of wrongdoing that could trigger copycat claims from other terminated employees",
+      "Resolve this before trial preparation costs consume another $200K in legal fees"
+    ],
+    "batna": "Go to trial. Internal assessment gives Praxis a 60% chance of prevailing, but a loss could mean a $2M+ verdict plus attorney fees. Trial prep alone will cost another $150-200K.",
+    "constraints": [
+      "Praxis's D&O insurer has authorized up to $900K in settlement funds but will fight anything above that",
+      "The CEO testified at deposition and made some damaging admissions about the termination timeline",
+      "Two other recently terminated employees are watching this case closely — a rich settlement invites more claims",
+      "The board wants this resolved before the Q2 earnings call in seven weeks"
+    ],
+    "intelOnOtherSide": [
+      "Webb is aggressive but his client Haines has been unemployed for 14 months and is under financial pressure to settle",
+      "Webb took this case on contingency — he needs a settlement large enough to justify 18 months of work",
+      "Haines's former assistant may have evidence that Haines falsified sales reports, which would undercut his wrongful termination claim",
+      "Webb has a trial scheduled in another case three weeks after your trial date — he may be stretched thin"
+    ]
+  },
+  "initialMeters": {
+    "dealValue": 40,
+    "riskExposure": 55,
+    "relationship": 40,
+    "clientSatisfaction": 45
+  },
+  "startNodeId": "r1-opening",
+  "nodes": {
+    "r1-opening": {
+      "id": "r1-opening",
+      "round": 1,
+      "speakerName": "Marcus Webb, Plaintiff's Attorney",
+      "narration": "Webb opens with a theatrical display of righteous indignation. \"Derek Haines gave Praxis twelve years and built your entire Southeast division. Your client fired him six weeks after he complained about being passed over for a promotion that went to the CEO's golf buddy. The jury is going to love this story. We're here because the judge told us to be, but our demand is $2.4 million and I'd frankly rather try this case.\"",
+      "options": [
+        {
+          "id": "r1-anchor-low",
+          "label": "Counter-anchor aggressively",
+          "description": "Respond with a $150K opening offer, framing it as a nuisance-value settlement reflecting the weakness of Haines's claims.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 5, "relationship": -15, "clientSatisfaction": 10 },
+          "nextNodeId": "r2-aggressive",
+          "feedback": "Hard anchoring. You've staked out extreme territory that gives you room to move, but Webb's face just went cold. The mediator is watching carefully — too aggressive too early can backfire with experienced opposing counsel who will use your lowball against you.",
+          "tags": ["competitive", "anchoring"]
+        },
+        {
+          "id": "r1-reframe",
+          "label": "Reframe the narrative",
+          "description": "Acknowledge the length of service but methodically challenge the legal basis — Haines was an at-will employee, the promotion decision was merit-based, and his performance metrics had declined.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r2-measured",
+          "feedback": "Disciplined opening. You avoided a reactive counter-anchor and instead attacked the foundation of Webb's case. This signals preparation and confidence without burning bridges. The mediator nods — you've changed the frame from sympathy to substance.",
+          "tags": ["analytical", "defensive"]
+        },
+        {
+          "id": "r1-ask-questions",
+          "label": "Probe Webb's damage model",
+          "description": "Instead of making a counter-offer, press Webb on how he calculated $2.4M. Ask about mitigation efforts, comparable verdicts, and what economic expert he plans to call.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -10, "relationship": 0, "clientSatisfaction": -5 },
+          "nextNodeId": "r2-information",
+          "feedback": "Information-first approach. You're forcing Webb to defend his number before you've committed to anything, which is textbook negotiation. But your client's in-house counsel just texted asking why you haven't made a counter yet — they want to see movement.",
+          "tags": ["information", "analytical", "cautious"]
+        }
+      ]
+    },
+
+    "r2-aggressive": {
+      "id": "r2-aggressive",
+      "round": 2,
+      "speakerName": "Marcus Webb, Plaintiff's Attorney",
+      "narration": "Webb barely suppresses a sneer. \"$150K? That's insulting and you know it. I'm going to tell the mediator you're not here in good faith. Derek, pack up — we're leaving. We'll see them at trial.\" He starts gathering his papers. The mediator intervenes, asking both sides to stay.",
+      "options": [
+        {
+          "id": "r2a-hold-firm",
+          "label": "Hold your ground",
+          "description": "Tell Webb that walking out of a court-ordered conference will not impress the judge, and that your number reflects a realistic assessment of his case.",
+          "meterEffects": { "dealValue": 5, "riskExposure": 10, "relationship": -10, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "You called his bluff — Webb sat back down. But you've now hardened positions on both sides early. The ZOPA, if it exists, just got narrower. Calling a bluff works only if it is a bluff.",
+          "tags": ["competitive", "credible-threat"]
+        },
+        {
+          "id": "r2a-concede-bracket",
+          "label": "Propose a negotiation bracket",
+          "description": "Acknowledge the opening was aggressive and propose working within a $300K-$1.2M bracket to find middle ground more efficiently.",
+          "meterEffects": { "dealValue": -5, "riskExposure": -10, "relationship": 10, "clientSatisfaction": 0 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "Smart recovery. Bracketing resets the temperature without fully abandoning your anchor. Webb knows you've moved, but the bracket you proposed still pulls the midpoint toward your range. The mediator looks relieved — this is productive.",
+          "tags": ["compromising", "collaborative"]
+        },
+        {
+          "id": "r2a-mediator-caucus",
+          "label": "Request a private caucus with the mediator",
+          "description": "Ask the mediator to speak with each side separately. Use the caucus to share confidential defense information that undermines Webb's case without tipping your hand directly.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -5, "relationship": 0, "clientSatisfaction": 0 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "Caucusing is a mediator's best tool and you've deployed it well. You've given the mediator ammunition to reality-test Webb's expectations without a direct confrontation. The downside: you've slowed the pace and your client is watching the clock.",
+          "tags": ["cautious", "analytical"]
+        }
+      ]
+    },
+
+    "r2-measured": {
+      "id": "r2-measured",
+      "round": 2,
+      "speakerName": "Marcus Webb, Plaintiff's Attorney",
+      "narration": "Webb shifts in his chair. Your reframe landed but he's not backing down. \"At-will doesn't mean fire-at-will. The timing speaks for itself — six weeks after the complaint. And those 'declining metrics' are going to look a lot like a pretextual paper trail when I put your HR director on the stand. So what's your number?\"",
+      "options": [
+        {
+          "id": "r2b-counter-moderate",
+          "label": "Make a calibrated counter at $350K",
+          "description": "Offer $350K as a structured separation package, emphasizing that it reflects genuine risk assessment rather than a nuisance payment.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "A credible opening that shows you've done the math. The gap is still wide — $350K vs. $2.4M — but you've signaled willingness to engage seriously. Webb is doing his own calculations now. The negotiation is alive.",
+          "tags": ["anchoring", "analytical"]
+        },
+        {
+          "id": "r2b-conditional",
+          "label": "Make a conditional offer",
+          "description": "Say you're prepared to discuss a number, but only after Webb agrees to include a mutual NDA and non-disparagement clause in any deal. Get the framework before the dollars.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -5, "relationship": 0, "clientSatisfaction": 10 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "You're sequencing the negotiation — locking in non-monetary terms before revealing your number. This protects Praxis's reputation concerns and gives you more trade chips later. But Webb may read this as stalling.",
+          "tags": ["creative", "package-deal", "cautious"]
+        },
+        {
+          "id": "r2b-challenge-damages",
+          "label": "Attack the damages calculation directly",
+          "description": "Walk through Webb's $2.4M number and dismantle it: front pay assumptions are inflated, emotional distress lacks medical documentation, and punitive damages require malice they can't prove.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 0, "relationship": -10, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "Surgical strike on the demand. You've exposed gaps in Webb's damages model and the mediator is taking notes. But Webb's client Derek is visibly angry — he feels you're dismissing his experience. Emotional dynamics matter in settlement conferences.",
+          "tags": ["competitive", "analytical", "aggressive"]
+        }
+      ]
+    },
+
+    "r2-information": {
+      "id": "r2-information",
+      "round": 2,
+      "speakerName": "Marcus Webb, Plaintiff's Attorney",
+      "narration": "Webb pauses. He wasn't expecting questions instead of a counter-offer. \"I'm not here to tutor you on damages calculations. Two years' front pay, emotional distress, punitives — you can do the math. Now are you going to make a real offer or are we done here?\"",
+      "options": [
+        {
+          "id": "r2c-slow-play",
+          "label": "Continue probing — ask about mitigation",
+          "description": "Press on whether Haines has looked for comparable employment in 14 months, noting that failure to mitigate drastically reduces front pay damages.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": -5, "clientSatisfaction": -5 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "You've touched a nerve. Haines's failure to find work is either because the market is tough or because he hasn't tried hard enough — and you're betting on the latter. Webb deflects, which tells you something. But your client is growing impatient with the lack of a concrete offer.",
+          "tags": ["information", "analytical"]
+        },
+        {
+          "id": "r2c-pivot-offer",
+          "label": "Pivot to a $400K opening offer",
+          "description": "Having gathered intelligence, make an offer of $400K with a brief explanation of how you calculated it — back pay only, no front pay, no punitives.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 5, "clientSatisfaction": 10 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "Good timing. You've probed enough to justify your number and now you're in the game. The information you gathered first makes this counter feel more grounded than if you'd led with it. Webb knows you've been paying attention.",
+          "tags": ["analytical", "anchoring"]
+        },
+        {
+          "id": "r2c-leverage-deadline",
+          "label": "Remind Webb of the trial calendar",
+          "description": "Mention casually that you know he has another trial three weeks after this one, and that perhaps he'd benefit from clearing this case off his docket.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 5, "relationship": -15, "clientSatisfaction": 5 },
+          "nextNodeId": "r3-discovery",
+          "feedback": "Webb's expression flickers — you've done your homework and he knows it. But using personal scheduling pressure is a sharp move that can breed resentment. He'll remember this, and if this case doesn't settle today, he'll be a harder opponent going forward.",
+          "tags": ["competitive", "deadline-pressure", "aggressive"]
+        }
+      ]
+    },
+
+    "r3-discovery": {
+      "id": "r3-discovery",
+      "round": 3,
+      "speakerName": "Mediator (Ret. Judge Patricia Okonkwo)",
+      "narration": "The mediator returns from a caucus with Webb's side. \"Counsel, I want to share something. During my conversation with Mr. Webb, he disclosed that plaintiff may have an issue with certain internal emails. I understand your team recently found emails suggesting Mr. Haines was padding his sales reports. If that's accurate, it's relevant to both sides' risk assessment.\"",
+      "options": [
+        {
+          "id": "r3-press-advantage",
+          "label": "Press the advantage hard",
+          "description": "Tell the mediator you intend to move to amend your answer to include counterclaims for fraud and breach of fiduciary duty based on the falsified reports.",
+          "meterEffects": { "dealValue": 15, "riskExposure": -10, "relationship": -15, "clientSatisfaction": 10 },
+          "nextNodeId": "r4-mediator",
+          "feedback": "Nuclear option deployed. The threat of counterclaims fundamentally shifts the power dynamic — Haines could go from plaintiff to defendant. But you've also made Webb desperate, and desperate lawyers sometimes double down rather than fold. The mediator looks uncomfortable with the escalation.",
+          "tags": ["aggressive", "credible-threat", "competitive"]
+        },
+        {
+          "id": "r3-leverage-quietly",
+          "label": "Use the leverage subtly",
+          "description": "Acknowledge the emails exist but frame them as something you'd prefer not to raise at trial if a reasonable settlement can be reached. Let the implication do the work.",
+          "meterEffects": { "dealValue": 10, "riskExposure": -10, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "r4-mediator",
+          "feedback": "Masterful restraint. You've communicated the threat without making it explicit, which gives Webb a face-saving path to reduce his demand. The mediator can now carry the message that Praxis has significant leverage but is willing to be reasonable. This is how experienced litigators settle cases.",
+          "tags": ["analytical", "cautious", "collaborative"]
+        },
+        {
+          "id": "r3-trade-for-movement",
+          "label": "Trade the evidence for a major concession",
+          "description": "Offer to keep the falsified reports out of any proceeding in exchange for Webb dropping his demand to $1M or below. Make it an explicit trade.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 10, "clientSatisfaction": 0 },
+          "nextNodeId": "r4-mediator",
+          "feedback": "Creative package deal — you've converted a litigation weapon into a negotiation chip. The risk is that you've capped your upside by trading away leverage for a specific number rather than letting the pressure build. Webb is interested but hasn't committed. The gap is narrowing.",
+          "tags": ["creative", "package-deal", "compromising"]
+        }
+      ]
+    },
+
+    "r4-mediator": {
+      "id": "r4-mediator",
+      "round": 4,
+      "speakerName": "Mediator (Ret. Judge Patricia Okonkwo)",
+      "narration": "The mediator calls both sides back together. \"I've spoken with each of you separately. There's a deal here, but you're not close yet. I'm going to be blunt: plaintiff needs to come down significantly, and defense needs to come up. I've seen a hundred cases like this. The jury range is $400K to $1.5M. I suggest both sides work within that reality.\"",
+      "options": [
+        {
+          "id": "r4-accept-range",
+          "label": "Accept the mediator's framework",
+          "description": "Agree to work within the $400K-$1.5M range the mediator has proposed and suggest meeting near the lower end with a strong non-monetary package.",
+          "meterEffects": { "dealValue": -5, "riskExposure": -10, "relationship": 10, "clientSatisfaction": -5 },
+          "nextNodeId": "r5-complication",
+          "feedback": "You've accepted a range that includes numbers above your client's comfort zone, but the mediator's bracket is a powerful anchor grounded in trial reality. Working within it signals good faith and moves the negotiation forward. The challenge now is staying near the bottom of that range.",
+          "tags": ["compromising", "collaborative"]
+        },
+        {
+          "id": "r4-push-back",
+          "label": "Challenge the mediator's range",
+          "description": "Respectfully disagree with the $400K floor — argue that given the falsified reports evidence, the real jury range starts at $0 and the defense has a strong summary judgment argument.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 5, "relationship": -10, "clientSatisfaction": 10 },
+          "nextNodeId": "r5-complication",
+          "feedback": "Bold move challenging a retired judge's assessment. You've signaled that you're not afraid of trial, which is credible given your evidence. But the mediator is less likely to advocate for your position in the next caucus — you just told her she was wrong. Mediator relationships matter.",
+          "tags": ["competitive", "credible-threat", "aggressive"]
+        },
+        {
+          "id": "r4-propose-mediators-proposal",
+          "label": "Suggest a Mediator's Proposal",
+          "description": "Ask Judge Okonkwo to issue a formal Mediator's Proposal — a single number that both sides accept or reject confidentially and simultaneously, with neither knowing the other's answer unless both accept.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -15, "relationship": 5, "clientSatisfaction": 0 },
+          "nextNodeId": "r5-complication",
+          "feedback": "Sophisticated move. A Mediator's Proposal eliminates the dance and forces a binary decision. It also protects both sides from revealing their true reservation price. The risk is that the mediator picks a number higher than you'd like — but if both sides reject it, you've lost nothing. Webb looks intrigued.",
+          "tags": ["creative", "analytical"]
+        }
+      ]
+    },
+
+    "r5-complication": {
+      "id": "r5-complication",
+      "round": 5,
+      "speakerName": "Marcus Webb, Plaintiff's Attorney",
+      "narration": "Webb drops a bombshell. \"Before we go further, I need to disclose something. Derek has authorized me to add a claim. He's prepared to amend the complaint to include sexual harassment — specifically, that his termination was retaliation for rebuffing inappropriate advances from the COO. If we don't settle today, this becomes a much bigger case and a much bigger headline for Praxis.\"",
+      "options": [
+        {
+          "id": "r5-call-bluff",
+          "label": "Call it a bluff",
+          "description": "Tell Webb that a claim surfacing 18 months into litigation, conveniently at the settlement conference, has no credibility. The court will see it as a litigation tactic and sanctions could follow.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 10, "relationship": -10, "clientSatisfaction": 5 },
+          "nextNodeId": "r6-package",
+          "feedback": "You're right that late-emerging claims often look manufactured. But you're gambling — if Haines has any documentation or witnesses, calling it a bluff just made you look dismissive of a harassment allegation, which plays terribly before a jury. The mediator is watching your reaction carefully for tells.",
+          "tags": ["competitive", "aggressive", "credible-threat"]
+        },
+        {
+          "id": "r5-take-seriously",
+          "label": "Take it seriously and recalibrate",
+          "description": "Request a recess to call your client and reassess. A harassment claim changes the calculus entirely — the reputational exposure alone could be worth more than the settlement.",
+          "meterEffects": { "dealValue": -10, "riskExposure": -15, "relationship": 5, "clientSatisfaction": -10 },
+          "nextNodeId": "r6-package",
+          "feedback": "Prudent but costly. You've signaled to Webb that the new claim moved you, which means he'll price it into his demand. But you've also protected your client by not dismissing something that could be real. Your client's in-house counsel sounds rattled on the phone — the CEO never mentioned this.",
+          "tags": ["cautious", "defensive"]
+        },
+        {
+          "id": "r5-separate-issues",
+          "label": "Separate and contain",
+          "description": "Tell Webb you'll evaluate any amended complaint on its merits, but it doesn't change today's settlement conference. Propose addressing the existing claims now and dealing with any new claims through proper procedure.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -5, "relationship": 0, "clientSatisfaction": 5 },
+          "nextNodeId": "r6-package",
+          "feedback": "Disciplined compartmentalization. You haven't given the new claim any oxygen but you also haven't dismissed it, preserving your credibility. The mediator agrees that today's conference should focus on the claims as pled. Webb got less impact from his bombshell than he wanted, but the threat still lingers.",
+          "tags": ["analytical", "defensive", "cautious"]
+        }
+      ]
+    },
+
+    "r6-package": {
+      "id": "r6-package",
+      "round": 6,
+      "speakerName": "Mediator (Ret. Judge Patricia Okonkwo)",
+      "narration": "The mediator has been working both rooms. She sits down with you privately. \"Counsel, I think there's a deal between $600K and $850K. But it's going to require a creative package — not just a check. Webb's client needs to feel vindicated, and your client needs protection. Let's talk about what a complete package looks like.\"",
+      "options": [
+        {
+          "id": "r6-full-package",
+          "label": "Propose a comprehensive package",
+          "description": "Offer a structured deal: cash payment, mutual NDA with liquidated damages, non-disparagement clause, a neutral reference letter, and agreement to withdraw the case with prejudice. Emphasize the total value to Haines.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": 10, "clientSatisfaction": 10 },
+          "nextNodeId": "r7-final-numbers",
+          "feedback": "You've expanded the pie. The NDA protects Praxis from publicity, the reference letter helps Haines get re-employed, and the non-disparagement clause protects both sides. By bundling these terms, you can justify a lower cash number because the total package has real value. This is how experienced deal lawyers create value.",
+          "tags": ["creative", "package-deal", "collaborative"]
+        },
+        {
+          "id": "r6-cash-focused",
+          "label": "Keep it simple — cash and a release",
+          "description": "Argue that complicated packages create enforcement headaches. Propose a clean deal: a single lump-sum payment in exchange for a general release, dismissal with prejudice, and a basic confidentiality clause.",
+          "meterEffects": { "dealValue": 0, "riskExposure": -5, "relationship": -5, "clientSatisfaction": 5 },
+          "nextNodeId": "r7-final-numbers",
+          "feedback": "Clean and efficient, but you've left tools on the table. A lump-sum-only deal means the entire negotiation comes down to one number, and that's a game Webb is comfortable playing. You've removed the dimensions where you could have created mutual value. Sometimes simplicity is strength; sometimes it's a missed opportunity.",
+          "tags": ["competitive", "concession"]
+        },
+        {
+          "id": "r6-structured-payment",
+          "label": "Propose a structured payment over time",
+          "description": "Suggest paying the settlement in quarterly installments over 18 months, which reduces the present cost to Praxis and creates a clawback mechanism if Haines violates the NDA.",
+          "meterEffects": { "dealValue": 10, "riskExposure": 0, "relationship": -5, "clientSatisfaction": 15 },
+          "nextNodeId": "r7-final-numbers",
+          "feedback": "Financially savvy. Structured payments reduce Praxis's immediate hit and the clawback mechanism gives teeth to the NDA. But Webb will want a higher headline number to offset the time value of money, and Haines — who has been unemployed for 14 months — badly needs cash now. You may have created a new sticking point.",
+          "tags": ["creative", "analytical", "package-deal"]
+        }
+      ]
+    },
+
+    "r7-final-numbers": {
+      "id": "r7-final-numbers",
+      "round": 7,
+      "speakerName": "Marcus Webb, Plaintiff's Attorney",
+      "narration": "After hours of back-and-forth, it's down to the money. Webb is at $975K. You're at $550K. The mediator says she thinks $725K is fair and both sides should take it. Webb says he'll go to $900K but no lower. \"That's my final number. Take it or leave it — I'll see you at trial.\"",
+      "options": [
+        {
+          "id": "r7-accept-900",
+          "label": "Accept $900K",
+          "description": "Take the $900K. It's within the insurer's authority, avoids the trial risk, and gets this done today. Recommend to your client that certainty has value.",
+          "meterEffects": { "dealValue": -10, "riskExposure": -20, "relationship": 10, "clientSatisfaction": -15 },
+          "nextNodeId": "terminal-weak-settlement",
+          "feedback": "You've eliminated trial risk, but at a price that will make the board uncomfortable. The insurer will pay, but the CEO will question whether you left money on the table. In settlement negotiations, 'final offers' are rarely final — experienced negotiators know there's almost always one more move.",
+          "tags": ["concession", "cautious"]
+        },
+        {
+          "id": "r7-split-difference",
+          "label": "Counter at $725K — the mediator's number",
+          "description": "Adopt the mediator's recommended figure. Argue that a retired judge's independent assessment of fair value carries weight, and if Webb rejects a judge's recommendation, it says something about his case.",
+          "meterEffects": { "dealValue": 5, "riskExposure": -10, "relationship": 5, "clientSatisfaction": 5 },
+          "nextNodeId": "terminal-adequate-settlement",
+          "feedback": "Anchoring to the mediator's number is a strong play. It reframes the $725K not as your concession but as an independent valuation. Webb will have a hard time explaining to his client why he rejected a retired judge's recommendation. You've used the mediator's credibility as leverage.",
+          "tags": ["anchoring", "compromising", "analytical"]
+        },
+        {
+          "id": "r7-final-push",
+          "label": "Hold at $625K and prepare to walk",
+          "description": "Tell Webb that $625K with the full non-monetary package is your final authority. If he can't take it, you'll see him at trial. Stand up and begin packing your briefcase.",
+          "meterEffects": { "dealValue": 15, "riskExposure": 15, "relationship": -15, "clientSatisfaction": 10 },
+          "nextNodeId": "r8-brinkmanship",
+          "feedback": "Brinksmanship — the highest-risk, highest-reward play. Walking away from a settlement conference is a credible threat only if you're genuinely prepared to try the case. Your trial preparation is strong, but are you sure the CEO's deposition testimony won't sink you? The next few minutes will determine everything.",
+          "tags": ["competitive", "credible-threat", "deadline-pressure"]
+        }
+      ]
+    },
+
+    "r8-brinkmanship": {
+      "id": "r8-brinkmanship",
+      "round": 8,
+      "speakerName": "Mediator (Ret. Judge Patricia Okonkwo)",
+      "narration": "The mediator catches you in the hallway. \"Don't leave yet. Webb just told me his client would take $700K with the full package. He's also worried about the harassment claim blowing up in his face if you file counterclaims. I think if you come up to $675K, this gets done right now.\"",
+      "options": [
+        {
+          "id": "r8-close-675",
+          "label": "Close at $675K",
+          "description": "Accept the mediator's suggestion. $675K with mutual NDA, non-disparagement, neutral reference, and dismissal with prejudice. Shake hands and get the term sheet drafted.",
+          "meterEffects": { "dealValue": 10, "riskExposure": -25, "relationship": 10, "clientSatisfaction": 10 },
+          "nextNodeId": "terminal-strong-settlement",
+          "feedback": "Outstanding result. You've settled a $2.4M demand for $675K — 72% below the opening ask — with comprehensive protections for your client. The walk-away threat created the final pressure that brought Webb's side down. Sometimes the best deals close in the hallway.",
+          "tags": ["collaborative", "compromising"]
+        },
+        {
+          "id": "r8-push-lower",
+          "label": "Counter at $625K — hold your line",
+          "description": "Tell the mediator your authority is $625K and not a dollar more. Push for the extra $50K savings. Every dollar counts when the board is watching.",
+          "meterEffects": { "dealValue": 5, "riskExposure": 10, "relationship": -10, "clientSatisfaction": 5 },
+          "nextNodeId": "terminal-adequate-settlement",
+          "feedback": "You squeezed another $50K, but the deal almost fell apart. Webb's client felt insulted by the continued nickel-and-diming after what he viewed as a major concession. The settlement gets done at $650K, but with palpable bitterness. Sometimes the last $50K costs more in goodwill than it saves in dollars.",
+          "tags": ["competitive", "aggressive"]
+        },
+        {
+          "id": "r8-walk-away",
+          "label": "Walk away — go to trial",
+          "description": "Decide that $675K is still too high. With the falsified reports evidence and a strong defense, you believe trial is the better option. Tell the mediator the conference is over.",
+          "meterEffects": { "dealValue": 0, "riskExposure": 25, "relationship": -20, "clientSatisfaction": -5 },
+          "nextNodeId": "terminal-impasse",
+          "feedback": "You've rejected a deal that most defense lawyers would take. Your confidence in the trial may be warranted — or it may be hubris. The next six weeks will cost your client another $200K in trial prep regardless of outcome. The board will want to know why you walked away from certainty.",
+          "tags": ["competitive", "aggressive", "credible-threat"]
+        }
+      ]
+    },
+
+    "terminal-strong-settlement": {
+      "id": "terminal-strong-settlement",
+      "round": 8,
+      "narration": "The deal is done.",
+      "isTerminal": true,
+      "outcomeNarrative": "You settled the Haines wrongful termination case for $675K with a comprehensive non-monetary package including mutual NDA, non-disparagement, and a neutral reference letter. The settlement represents a 72% reduction from the opening $2.4M demand and falls well within the insurer's authority. The board is relieved, the CEO can focus on earnings, and the two employees watching from the sidelines see a company that fights hard but resolves disputes fairly. Webb's client gets enough to stabilize his finances and move on. This is what a well-negotiated settlement looks like — neither side celebrates, but both can live with the result.",
+      "options": []
+    },
+
+    "terminal-adequate-settlement": {
+      "id": "terminal-adequate-settlement",
+      "round": 8,
+      "narration": "The paperwork is being drafted.",
+      "isTerminal": true,
+      "outcomeNarrative": "The case settles in the $650K-$725K range with standard release terms and confidentiality provisions. It's a defensible result — you've reduced the demand by more than 65% and avoided a trial with real downside risk. The insurer covers it without complaint. But the negotiation left some value on the table: the non-monetary terms could have been stronger, and the relationship with opposing counsel is strained enough that any enforcement disputes will be fought tooth and nail. The board accepts the number without enthusiasm. You've done the job competently, but there was a better deal available if the pieces had fallen differently.",
+      "options": []
+    },
+
+    "terminal-weak-settlement": {
+      "id": "terminal-weak-settlement",
+      "round": 8,
+      "narration": "You sign the term sheet.",
+      "isTerminal": true,
+      "outcomeNarrative": "The case settles at $900K — a number that makes the insurer wince and the board question your strategy. While you've avoided the risk of a trial and the harassment allegation never sees the light of day, the settlement is above the threshold that signals weakness to the two former employees considering their own claims. Within three months, Praxis receives demand letters from both of them. The CEO privately tells the GC that outside counsel folded too easily. You eliminated short-term risk but created long-term exposure. In settlement negotiations, the number you pay sends a message far beyond the four corners of the release agreement.",
+      "options": []
+    },
+
+    "terminal-impasse": {
+      "id": "terminal-impasse",
+      "round": 8,
+      "narration": "The conference room empties.",
+      "isTerminal": true,
+      "outcomeNarrative": "The settlement conference ends without a deal. Both sides pack up and the mediator shakes her head — she thought this one would settle. Over the next six weeks, Praxis spends $185K on trial preparation. Webb amends the complaint to add the harassment claim, generating a wave of negative press coverage that tanks Praxis's stock by 4% on the day the amended complaint is filed. At trial, Praxis prevails on the wrongful termination claim but the jury awards $350K on the harassment count. After attorney fees, costs, and the reputational damage, the total bill exceeds $1.2M — nearly double what you could have settled for. Sometimes the best deal is the one you almost walked away from.",
+      "options": []
+    }
+  }
+}

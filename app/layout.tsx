@@ -33,15 +33,15 @@ const monoFont = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Intake-Game",
-    template: "%s | Intake-Game",
+    default: "Lawyered Games",
+    template: "%s | Lawyered Games",
   },
   description:
-    "Work multiple intake days at a small firm, make the call, and learn why the signals mattered.",
+    "Practice legal judgment with intake screening and deal negotiation games.",
   openGraph: {
-    title: "Intake-Game",
+    title: "Lawyered Games",
     description:
-      "Practice intake judgment across multiple intake days in a playful, document-first browser game for law students and junior lawyers.",
+      "Practice intake judgment and deal negotiation in browser games for law students and junior lawyers.",
   },
 };
 

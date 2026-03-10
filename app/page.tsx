@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DayPicker } from "@/components/intake/DayPicker";
+import { ScenarioPicker } from "@/components/negotiation/ScenarioPicker";
 import { ACTION_DETAILS } from "@/lib/game";
 import { allDays, dayLoadErrors } from "@/lib/intake-data";
+import { allScenarios } from "@/lib/negotiation-data";
 
 export default function Home() {
   const totalScenarios = allDays.reduce((sum, day) => sum + day.cases.length, 0);
@@ -135,6 +137,39 @@ export default function Home() {
               </p>
             </div>
           </aside>
+        </section>
+
+        {/* Closing Table — Negotiation Game */}
+        <section className="card rounded-xl px-6 py-6 sm:px-8">
+          <div className="space-y-5">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="folder-tab">Closing Table</span>
+              <span className="folder-tab folder-tab-muted">New</span>
+            </div>
+            <div className="space-y-3">
+              <p className="eyebrow-rule font-mono text-xs uppercase tracking-[0.28em] text-[var(--text-secondary)]">
+                Negotiation Game
+              </p>
+              <h2 className="font-display title-glow text-4xl uppercase sm:text-5xl">
+                Closing Table
+              </h2>
+              <p className="max-w-2xl text-lg leading-7 text-[var(--text-secondary)]">
+                Negotiate a deal over multiple rounds. Manage deal value, risk,
+                relationships, and client satisfaction.
+              </p>
+            </div>
+            <ScenarioPicker
+              scenarios={allScenarios.map((s) => ({
+                id: s.id,
+                title: s.title,
+                subtitle: s.subtitle,
+                dealType: s.dealType,
+                difficulty: s.difficulty,
+                estimatedMinutes: s.estimatedMinutes,
+                playerRole: s.playerRole,
+              }))}
+            />
+          </div>
         </section>
       </div>
     </main>

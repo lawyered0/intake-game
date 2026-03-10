@@ -1,6 +1,6 @@
 import type { ChoiceRecord, Meters } from "@/types/negotiation";
 import { METER_KEYS, METER_LABELS } from "@/lib/negotiation-game";
-import { STAT_CSS_VAR } from "@/lib/meter-theme";
+import { STAT_CSS_VAR, STAT_ICON } from "@/lib/meter-theme";
 import { MeterDisplay } from "./MeterDisplay";
 
 interface FeedbackOverlayProps {
@@ -40,15 +40,19 @@ export function FeedbackOverlay({
             const delta = record.meterEffects[key];
             const displayDelta = key === "riskExposure" ? -delta : delta;
             const isGood = key === "riskExposure" ? delta < 0 : delta > 0;
+            const Icon = STAT_ICON[key];
             return (
               <div key={key} className="flex items-center justify-between">
                 <div className="flex items-center gap-3 flex-1">
-                  <p
-                    className="font-mono text-[10px] uppercase tracking-[0.22em] w-28"
-                    style={{ color: STAT_CSS_VAR[key] }}
-                  >
-                    {METER_LABELS[key]}
-                  </p>
+                  <div className="flex items-center gap-1.5 w-28">
+                    <Icon size={12} style={{ color: STAT_CSS_VAR[key] }} className="shrink-0" />
+                    <p
+                      className="font-mono text-[10px] uppercase tracking-[0.22em]"
+                      style={{ color: STAT_CSS_VAR[key] }}
+                    >
+                      {METER_LABELS[key]}
+                    </p>
+                  </div>
                   {delta !== 0 ? (
                     <span
                       className={`font-mono text-xl font-bold tabular-nums stat-delta-float ${

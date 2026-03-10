@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Dark background -->
+  <rect width="120" height="120" rx="8" fill="#0a0c14"/>
+  <!-- Subtle vertical lines (high-rise motif) -->
+  <line x1="15" y1="0" x2="15" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="30" y1="0" x2="30" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="45" y1="0" x2="45" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="60" y1="0" x2="60" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="75" y1="0" x2="75" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="90" y1="0" x2="90" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="105" y1="0" x2="105" y2="120" stroke="#ffbe63" stroke-opacity="0.03" stroke-width="1"/>
+  <!-- Head silhouette -->
+  <ellipse cx="60" cy="40" rx="20" ry="24" fill="#12151f"/>
+  <!-- Hair - professional updo -->
+  <path d="M40 36 Q42 14 60 12 Q78 14 80 36" stroke="#ffbe63" stroke-width="1.5" fill="none" stroke-opacity="0.5"/>
+  <path d="M72 20 Q78 16 76 28" stroke="#ffbe63" stroke-width="1" fill="none" stroke-opacity="0.4"/>
+  <!-- Shoulders/blazer -->
+  <path d="M20 120 L26 84 Q30 72 40 66 L52 62 L60 60 L68 62 L80 66 Q90 72 94 84 L100 120" fill="#12151f"/>
+  <!-- Blazer lapels -->
+  <path d="M52 62 L56 80 L60 66" stroke="#ffbe63" stroke-width="1.2" fill="none" stroke-opacity="0.6"/>
+  <path d="M68 62 L64 80 L60 66" stroke="#ffbe63" stroke-width="1.2" fill="none" stroke-opacity="0.6"/>
+  <!-- Key motif (property/real estate) -->
+  <circle cx="60" cy="96" r="4" stroke="#ffbe63" stroke-width="0.8" fill="none" stroke-opacity="0.2"/>
+  <line x1="60" y1="100" x2="60" y2="110" stroke="#ffbe63" stroke-width="0.8" stroke-opacity="0.2"/>
+  <line x1="58" y1="106" x2="62" y2="106" stroke="#ffbe63" stroke-width="0.8" stroke-opacity="0.2"/>
+  <!-- Earring accent -->
+  <circle cx="42" cy="44" r="1.5" fill="#ffbe63" fill-opacity="0.4"/>
+  <!-- Subtle face -->
+  <line x1="54" y1="48" x2="66" y2="48" stroke="#1a1e2e" stroke-width="1" stroke-opacity="0.5"/>
+</svg>

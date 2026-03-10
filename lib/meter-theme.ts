@@ -1,4 +1,19 @@
 import type { Meters } from "@/types/negotiation";
+import {
+  DollarSign,
+  ShieldAlert,
+  Handshake,
+  Star,
+  type LucideIcon,
+} from "lucide-react";
+
+/** Per-stat icon component */
+export const STAT_ICON: Record<keyof Meters, LucideIcon> = {
+  dealValue: DollarSign,
+  riskExposure: ShieldAlert,
+  relationship: Handshake,
+  clientSatisfaction: Star,
+};
 
 /** Per-stat CSS custom property for color */
 export const STAT_CSS_VAR: Record<keyof Meters, string> = {

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Dark background -->
+  <rect width="120" height="120" rx="8" fill="#0a0c14"/>
+  <!-- Subtle tech grid pattern -->
+  <line x1="20" y1="0" x2="20" y2="120" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="40" y1="0" x2="40" y2="120" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="60" y1="0" x2="60" y2="120" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="80" y1="0" x2="80" y2="120" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="100" y1="0" x2="100" y2="120" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="0" y1="20" x2="120" y2="20" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="0" y1="40" x2="120" y2="40" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <line x1="0" y1="60" x2="120" y2="60" stroke="#5baaff" stroke-opacity="0.04" stroke-width="0.5"/>
+  <!-- Head silhouette -->
+  <ellipse cx="60" cy="42" rx="22" ry="26" fill="#12151f"/>
+  <!-- Hair outline -->
+  <path d="M38 38 Q40 20 60 16 Q80 20 82 38" stroke="#5baaff" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
+  <!-- Shoulders/hoodie -->
+  <path d="M24 120 L28 82 Q32 72 42 68 L60 64 L78 68 Q88 72 92 82 L96 120" fill="#12151f"/>
+  <!-- Hoodie collar detail -->
+  <path d="M46 68 L60 76 L74 68" stroke="#5baaff" stroke-width="1.5" fill="none" stroke-opacity="0.7"/>
+  <!-- Code bracket motif on chest -->
+  <text x="48" y="100" font-family="monospace" font-size="18" fill="#5baaff" fill-opacity="0.25">{</text>
+  <text x="66" y="100" font-family="monospace" font-size="18" fill="#5baaff" fill-opacity="0.25">}</text>
+  <!-- Glasses hint -->
+  <path d="M47 42 L53 42 M67 42 L73 42" stroke="#5baaff" stroke-width="1" stroke-opacity="0.5"/>
+  <!-- Subtle face features -->
+  <line x1="55" y1="50" x2="65" y2="50" stroke="#1a1e2e" stroke-width="1" stroke-opacity="0.6"/>
+</svg>

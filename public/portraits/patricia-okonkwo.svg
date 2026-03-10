@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Dark background -->
+  <rect width="120" height="120" rx="8" fill="#0a0c14"/>
+  <!-- Balanced horizontal lines (impartiality/order) -->
+  <line x1="0" y1="30" x2="120" y2="30" stroke="#a78bfa" stroke-opacity="0.03" stroke-width="0.5"/>
+  <line x1="0" y1="50" x2="120" y2="50" stroke="#a78bfa" stroke-opacity="0.03" stroke-width="0.5"/>
+  <line x1="0" y1="70" x2="120" y2="70" stroke="#a78bfa" stroke-opacity="0.03" stroke-width="0.5"/>
+  <line x1="0" y1="90" x2="120" y2="90" stroke="#a78bfa" stroke-opacity="0.03" stroke-width="0.5"/>
+  <line x1="0" y1="110" x2="120" y2="110" stroke="#a78bfa" stroke-opacity="0.03" stroke-width="0.5"/>
+  <!-- Head silhouette - slightly elevated (authority) -->
+  <ellipse cx="60" cy="38" rx="20" ry="24" fill="#12151f"/>
+  <!-- Hair - dignified, swept back -->
+  <path d="M40 34 Q42 14 60 12 Q78 14 80 34" stroke="#a78bfa" stroke-width="1.5" fill="none" stroke-opacity="0.5"/>
+  <path d="M42 28 Q50 18 60 16" stroke="#a78bfa" stroke-width="0.8" fill="none" stroke-opacity="0.3"/>
+  <!-- Shoulders / judicial robe -->
+  <path d="M18 120 L24 82 Q28 72 40 66 L52 62 L60 60 L68 62 L80 66 Q92 72 96 82 L102 120" fill="#12151f"/>
+  <!-- Robe collar - wide, flowing -->
+  <path d="M40 66 L44 72 L52 68 L60 74 L68 68 L76 72 L80 66" stroke="#a78bfa" stroke-width="1.5" fill="none" stroke-opacity="0.6"/>
+  <!-- Robe center panel -->
+  <line x1="60" y1="74" x2="60" y2="120" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.15"/>
+  <!-- Balanced scales (centered, prominent) -->
+  <line x1="44" y1="100" x2="76" y2="100" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25"/>
+  <line x1="60" y1="92" x2="60" y2="100" stroke="#a78bfa" stroke-width="0.8" stroke-opacity="0.25"/>
+  <circle cx="60" cy="92" r="2" stroke="#a78bfa" stroke-width="0.6" fill="none" stroke-opacity="0.25"/>
+  <path d="M44 100 L46 106 L52 106 L54 100" stroke="#a78bfa" stroke-width="0.6" fill="none" stroke-opacity="0.2"/>
+  <path d="M66 100 L68 106 L74 106 L76 100" stroke="#a78bfa" stroke-width="0.6" fill="none" stroke-opacity="0.2"/>
+  <!-- Wise expression hint -->
+  <path d="M50 34 L54 35 M66 35 L70 34" stroke="#a78bfa" stroke-width="0.6" stroke-opacity="0.25"/>
+  <!-- Subtle face -->
+  <line x1="54" y1="46" x2="66" y2="46" stroke="#1a1e2e" stroke-width="1" stroke-opacity="0.5"/>
+</svg>

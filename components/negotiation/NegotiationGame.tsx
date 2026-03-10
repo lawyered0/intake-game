@@ -15,6 +15,7 @@ import {
   type ScenarioCompletion,
 } from "@/lib/negotiation-progress";
 import type { Meters, Scenario } from "@/types/negotiation";
+import { getScenarioTheme } from "@/lib/scenario-theme";
 import { NegotiationBriefing } from "./NegotiationBriefing";
 import { RoundScreen } from "./RoundScreen";
 import { FeedbackOverlay } from "./FeedbackOverlay";
@@ -69,6 +70,7 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
     setIsNewBest(false);
   };
 
+  const theme = getScenarioTheme(scenario.id);
   const currentNode = getCurrentNode(scenario, state);
   const completedRounds =
     state.choiceHistory.length > 0
@@ -76,7 +78,16 @@ export function NegotiationGame({ scenario }: NegotiationGameProps) {
       : 0;
 
   return (
-    <main className="negotiate-stage min-h-screen px-5 py-6 sm:px-8 lg:px-10">
+    <main
+      className="negotiate-stage min-h-screen px-5 py-6 sm:px-8 lg:px-10"
+      style={theme ? {
+        backgroundImage: `${theme.gradientOverlay}, url(${theme.backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        "--ambient-color": theme.ambientColor,
+        "--grid-opacity": theme.gridOpacity,
+      } as React.CSSProperties : undefined}
+    >
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="rpg-panel mb-4 flex items-center justify-between px-4 py-2">

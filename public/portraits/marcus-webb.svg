@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Dark background -->
+  <rect width="120" height="120" rx="8" fill="#0a0c14"/>
+  <!-- Aggressive diagonal lines (adversarial energy) -->
+  <line x1="0" y1="120" x2="40" y2="0" stroke="#ff5f84" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="20" y1="120" x2="60" y2="0" stroke="#ff5f84" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="40" y1="120" x2="80" y2="0" stroke="#ff5f84" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="60" y1="120" x2="100" y2="0" stroke="#ff5f84" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="80" y1="120" x2="120" y2="0" stroke="#ff5f84" stroke-opacity="0.03" stroke-width="1"/>
+  <!-- Head silhouette - facing forward, strong jaw -->
+  <ellipse cx="60" cy="40" rx="21" ry="25" fill="#12151f"/>
+  <!-- Short hair / clean cut -->
+  <path d="M39 34 Q42 16 60 14 Q78 16 81 34" stroke="#ff5f84" stroke-width="1.5" fill="none" stroke-opacity="0.5"/>
+  <!-- Broad shoulders / suit -->
+  <path d="M16 120 L22 82 Q26 70 38 64 L50 60 L60 58 L70 60 L82 64 Q94 70 98 82 L104 120" fill="#12151f"/>
+  <!-- Suit lapels - sharp, angular -->
+  <path d="M50 60 L54 82 L60 64" stroke="#ff5f84" stroke-width="1.5" fill="none" stroke-opacity="0.7"/>
+  <path d="M70 60 L66 82 L60 64" stroke="#ff5f84" stroke-width="1.5" fill="none" stroke-opacity="0.7"/>
+  <!-- Tie -->
+  <line x1="60" y1="64" x2="60" y2="90" stroke="#ff5f84" stroke-width="1.2" stroke-opacity="0.4"/>
+  <!-- Scales of justice motif -->
+  <line x1="46" y1="102" x2="74" y2="102" stroke="#ff5f84" stroke-width="0.8" stroke-opacity="0.2"/>
+  <line x1="60" y1="96" x2="60" y2="102" stroke="#ff5f84" stroke-width="0.8" stroke-opacity="0.2"/>
+  <path d="M46 102 L48 108 L54 108 L56 102" stroke="#ff5f84" stroke-width="0.6" fill="none" stroke-opacity="0.15"/>
+  <path d="M64 102 L66 108 L72 108 L74 102" stroke="#ff5f84" stroke-width="0.6" fill="none" stroke-opacity="0.15"/>
+  <!-- Determined brow line -->
+  <path d="M48 34 L54 36 M66 36 L72 34" stroke="#ff5f84" stroke-width="0.8" stroke-opacity="0.3"/>
+  <!-- Subtle face -->
+  <line x1="54" y1="48" x2="66" y2="48" stroke="#1a1e2e" stroke-width="1" stroke-opacity="0.5"/>
+</svg>

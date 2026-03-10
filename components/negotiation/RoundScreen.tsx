@@ -1,6 +1,7 @@
 import type { MeterEffects, Meters, ScenarioNode } from "@/types/negotiation";
 import { METER_KEYS, METER_LABELS } from "@/lib/negotiation-game";
 import { METER_ABBREV, STAT_CSS_VAR } from "@/lib/meter-theme";
+import { CharacterPortrait } from "./CharacterPortrait";
 import { MeterDisplay } from "./MeterDisplay";
 import { RoundProgress } from "./RoundProgress";
 
@@ -90,11 +91,7 @@ export function RoundScreen({
           <div className="p-5 flex-1">
             {node.speakerName ? (
               <div className="flex items-center gap-3 mb-3">
-                <div className="speaker-monogram">
-                  <span className="font-display text-xl text-[var(--accent-gold)]">
-                    {node.speakerName.charAt(0)}
-                  </span>
-                </div>
+                <CharacterPortrait speakerName={node.speakerName} size={56} />
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent-gold)]">
                     {node.speakerName}

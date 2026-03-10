@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Meters } from "@/types/negotiation";
-import { STAT_CSS_VAR, STAT_FILL_CLASS } from "@/lib/meter-theme";
+import { STAT_CSS_VAR, STAT_FILL_CLASS, STAT_ICON } from "@/lib/meter-theme";
 
 interface MeterBarProps {
   label: string;
@@ -33,16 +33,20 @@ export function MeterBar({
   const displayDelta = delta !== undefined ? (inverted ? -delta : delta) : undefined;
   const statColor = STAT_CSS_VAR[meterKey];
   const fillClass = STAT_FILL_CLASS[meterKey];
+  const IconComponent = STAT_ICON[meterKey];
 
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between gap-3">
-        <p
-          className="font-mono text-[10px] uppercase tracking-[0.22em] font-medium"
-          style={{ color: statColor }}
-        >
-          {label}
-        </p>
+        <div className="flex items-center gap-1.5">
+          <IconComponent size={14} style={{ color: statColor }} className="shrink-0" />
+          <p
+            className="font-mono text-[10px] uppercase tracking-[0.22em] font-medium"
+            style={{ color: statColor }}
+          >
+            {label}
+          </p>
+        </div>
         <div className="flex items-center gap-2">
           {displayDelta !== undefined && displayDelta !== 0 ? (
             <span
